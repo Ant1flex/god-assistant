@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.superstyle::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none; }
+
+.superstyle::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.damage h1 {
+  font-size: 18pt;
+  color: #B9B9B9;
+  font-weight: normal; }
+.damage h2 {
+  margin-bottom: 10px;
+  font-size: 16pt;
+  color: #6D727D;
+  font-weight: normal; }
+.damage select {
+  position: relative;
+  display: inline-block;
+  border: 2px solid;
+  border-color: #1C6866;
+  color: #6D727D;
+  background-color: transparent;
+  outline: none;
+  padding-left: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  overflow: hidden; }
+.damage option {
+  color: #6D727D;
+  outline: none; }
+.damage input {
+  color: #6D727D;
+  background-color: transparent;
+  outline: none; }
+.damage textarea {
+  border: 2px solid;
+  border-color: #1C6866;
+  color: #6D727D;
+  background-color: transparent;
+  outline: none; }
+
+.header {
+  margin: 10px 15px 10px 15px; }
+
+.modeUpdateContainer {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100vw; }
+
+.contentContainer {
+  margin: 10px 0px 10px 30px; }
+
+.area {
+  margin-right: 30px;
+  border: 2px solid;
+  border-color: #1C6866;
+  border-radius: 10px;
+  color: #6D727D;
+  background-color: transparent;
+  outline: none; }
+
+.mode {
+  width: 45vw; }
+  .modeSelector {
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 14pt;
+    padding-right: 10px;
+    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background-size: 25px;
+    background-origin: content-box; }
+
+.update {
+  width: 45vw;
+  margin-left: 0px; }
+  .updateContent {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%; }
+  .updateTime {
+    margin-right: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 14pt; }
+  .updateDay {
+    margin-right: 30px;
+    border-radius: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 14pt;
+    padding-right: 10px;
+    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background-size: 25px;
+    background-origin: content-box; }
+
+.operatorsArea {
+  height: 100px; }
+.operatorsTools {
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 5px;
+  height: 20px;
+  font-size: 10pt;
+  width: 10%; }
+.operatorsSearch {
+  border: 2px solid;
+  border-color: #1C6866;
+  padding-left: 10px; }
+.operatorsRole {
+  padding-right: 5px;
+  background: url("../../Resource/arrow-down.png") no-repeat right;
+  background-size: 15px;
+  background-origin: content-box; }
+.operatorsList {
+  display: flex;
+  background-color: transparent;
+  outline: none;
+  margin: 5px 20px 10px 20px;
+  height: 60px; }
+.operatorsElem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  border-color: #1C6866;
+  border-radius: 10px;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  margin: auto; }
+  .operatorsElem p {
+    font-weight: bold; }
+.operatorsImg {
+  height: 58px;
+  width: 58px; }
+
+.formula {
+  display: flex;
+  flex-direction: column; }
+  .formulaArea {
+    height: 100px; }
+  .formulaText {
+    border: none;
+    border-bottom: 2px solid;
+    border-color: #1C6866;
+    margin-top: 5px;
+    height: 30px;
+    font-size: 14pt;
+    width: 100%;
+    padding-left: 10px; }
+  .formulaBtnContainer {
+    display: flex; }
+  .formulaBtnWrapper {
+    display: inline-flex;
+    border: 2px solid;
+    border-color: #1C6866;
+    border-radius: 5px;
+    margin: 10px 10px 0 10px; }
+  .formulaBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #B9B9B9;
+    font-size: 12pt;
+    padding: 0 10px 0 10px; }
+
+.btnWrapper {
+  display: inline-flex;
+  border: 2px solid;
+  border-color: #1C6866;
+  border-radius: 10px;
+  margin: 10px 10px 0 10px; }
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #B9B9B9;
+  font-size: 16pt;
+  padding: 10px 20px 10px 20px; }
+
+/*# sourceMappingURL=damage.css.map */
