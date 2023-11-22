@@ -122,27 +122,27 @@ function Damage() {
         <div className="formulaArea area">
           <input type="text" className="formulaText" placeholder="Formula..."></input>
           <div className="formulaBtnContainer">
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Rounds</button>
-            </div>
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Kills</button>
-            </div>
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Deaths</button>
-            </div>
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Assists</button>
-            </div>
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Damage</button>
-            </div>
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Heal</button>
-            </div>
-            <div className="formulaBtnWrapper">
-              <button className="formulaBtn">Revives</button>
-            </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Rounds</button>
+              </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Kills</button>
+              </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Deaths</button>
+              </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Assists</button>
+              </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Damage</button>
+              </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Heal</button>
+              </div>
+              <div className="formulaBtnWrapper">
+                <button className="formulaBtn">Revives</button>
+              </div>
           </div>
         </div>
       </div>

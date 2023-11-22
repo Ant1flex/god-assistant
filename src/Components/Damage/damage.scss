@@ -192,28 +192,38 @@
     flex-direction: column;
 
     &Area{
-        height: 100px;
+        height: 120px;
     }
     &Text{
         border: none;
         border-bottom: 2px solid;
         border-color: #1C6866;
-        margin-top: 5px;
+        margin-top: 2.5px;
         height: 30px;
         font-size: 14pt;
         width: 100%;
-        padding-left: 10px;
+        padding-left: 20px;
     }
     &BtnContainer{
         display: flex;
-
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px 5px 10px;
     }
     &BtnWrapper{
         display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 0;
+        flex-basis: 0;
         border: 2px solid;
         border-color: #1C6866;
         border-radius: 5px;
-        margin: 10px 10px 0 10px;
+        height: 35px;
+        min-width: 150px;
+        width: auto;
+        margin: 5px 5px 0 5px;
     }
 
     &Btn{
@@ -221,8 +231,8 @@
             border: none;
             cursor: pointer;
             color: #B9B9B9;
-            font-size: 12pt;
-            padding: 0 10px 0 10px;
+            font-size: 14pt;
+            width: 100%;
     }
 }
 
