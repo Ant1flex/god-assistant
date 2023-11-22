@@ -89,6 +89,8 @@
     justify-content: space-between;
     width: 100%; }
   .updateTime {
+    border: 2px solid;
+    border-color: #1C6866;
     margin-right: 20px;
     border-radius: 10px;
     width: 100%;
