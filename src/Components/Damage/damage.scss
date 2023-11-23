@@ -16,7 +16,6 @@
 
 .damage{
     
-
     h1 {
         font-size: 18pt;
         color: #B9B9B9;
@@ -45,8 +44,6 @@
 
         overflow: hidden;
     }
-
-
     option {
         color: #6D727D;
         outline: none;
@@ -162,6 +159,8 @@
     }
     &List{
         display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         background-color: transparent;
         outline: none;
         margin: 5px 20px 10px 20px;
@@ -177,7 +176,8 @@
         height: 60px;
         width: 60px;
         overflow: hidden;
-        margin: auto;
+        margin-right: 15px;
+        // margin: auto;
         p{
             font-weight: bold;
         }

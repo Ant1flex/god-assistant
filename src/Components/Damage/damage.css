@@ -127,6 +127,8 @@
   background-origin: content-box; }
 .operatorsList {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   background-color: transparent;
   outline: none;
   margin: 5px 20px 10px 20px;
@@ -141,7 +143,7 @@
   height: 60px;
   width: 60px;
   overflow: hidden;
-  margin: auto; }
+  margin-right: 15px; }
   .operatorsElem p {
     font-weight: bold; }
 .operatorsImg {
