@@ -124,7 +124,7 @@ function Damage() {
 
   const [mode, setMode] = useState('')
   const [time, setTime] = useState('')
-  const [day, setDay] = useState('')
+  const [day, setDay] = useState('Choose day...')
   const [state, setState] = useState({
     search: '',
     role: 'Assault',
@@ -190,7 +190,7 @@ function Damage() {
             className="modeSelector"
             value={mode}
             onChange={e => handleModeChange(e)}>
-            <option value="?" selected disabled hidden>Choose battle mode...</option>
+            <option value="" selected hidden>Choose battle mode...</option>
             {
               modeArray.map((mode, key) => <option className="modeOption" value={mode} key={key}>{mode}</option>)
             }
@@ -205,7 +205,7 @@ function Damage() {
               className="updateDay"
               value={day}
               onChange={e => handleDayChange(e)}>
-              <option value="?" selected disabled hidden>Choose day...</option>
+              <option value="?" selected hidden>Choose day...</option>
               {
                 dayArray.map((day, key) => <option className="dayOption" value={day} key={key}>{day}</option>)
               }
