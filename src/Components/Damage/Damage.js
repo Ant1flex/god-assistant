@@ -122,18 +122,19 @@ function Damage() {
     },
   ]
 
+  const [role, setRole] = useState('Assault')
   const [mode, setMode] = useState('')
   const [time, setTime] = useState('')
   const [day, setDay] = useState('Choose day...')
   const [state, setState] = useState({
     search: '',
-    role: 'Assault',
+    role: '',
     operators: [],
   })
   const [formula, setFormula] = useState('')
 
   useEffect(() => {
-    switch (state.role) {
+    switch (role) {
       case 'Assault':
         setState({ ...state, operators: assaultArray })
         break
@@ -149,7 +150,7 @@ function Damage() {
       default:
         setState({ ...state, operators: assaultArray })
     }
-  }, [state.role])
+  }, [role])
 
   function handleModeChange(e) {
     setMode(e.target.value)
@@ -164,7 +165,8 @@ function Damage() {
     setState({ ...state, search: e.target.value })
   }
   function handleRoleChange(e) {
-    setState({ ...state, role: e.target.value })
+    //setState({ ...state, role: e.target.value })
+    setRole(e.target.value)
   }
   function handleAccessAll() {
     const operators = state.operators
@@ -188,6 +190,16 @@ function Damage() {
     <div className="damage">
       <div className="header">
         <h1>Damage dealer</h1>
+        <select
+            name="role_selector"
+            className="role"
+            value={role}
+            onChange={e => handleRoleChange(e)}>
+            <option value="?" selected disabled hidden>Choose role...</option>
+            {
+              roleArray.map((role, key) => <option className="roleOption" value={role} key={key}>{role}</option>)
+            }
+          </select>
       </div>
       <div className="modeUpdateContainer">
         <div className="mode contentContainer">
@@ -225,19 +237,9 @@ function Damage() {
         <div className="operatorsArea area">
           <input
             type="text"
-            className="operatorsSearch operatorsTools"
+            className="operatorsSearch"
             placeholder="Search..."
             onChange={handleSearchChange}></input>
-          <select
-            name="role_selector"
-            className="operatorsRole operatorsTools"
-            value={state.role}
-            onChange={e => handleRoleChange(e)}>
-            <option value="?" selected disabled hidden>Choose role...</option>
-            {
-              roleArray.map((role, key) => <option className="operatorsOption" value={role} key={key}>{role}</option>)
-            }
-          </select>
           <div className="operatorsList">
             {
               (!state.search) &&
@@ -247,6 +249,7 @@ function Damage() {
                 onClick={handleAccessAll}
               >
                 <p>ALL</p>
+                <div className="operatorHover"> </div>
               </div>
             }
             {
@@ -260,6 +263,7 @@ function Damage() {
                   }}>
                   <img className="operatorsImg" title={operator.title} src={operator.avatar} />
                   <img className={`operatorsAccess ${!operator.access ? 'operatorsNoAccess' : ''}`} src={'./Resource/access.png'} />
+                  <div className="operatorHover"> </div>
                 </div>)
             }
           </div>

@@ -8,7 +8,6 @@ function Header() {
       <div className="navbar">
         <a className="navbarBtn" href="http://localhost:3000/">Damage</a>
         <a className="navbarBtn" href="http://localhost:3000/">Social</a>
-        <button className="navbarAddBtn">+</button>
       </div>
 
     </div>

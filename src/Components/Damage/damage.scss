@@ -32,7 +32,6 @@
         display: inline-block;
         border: 2px solid;
         border-color: #1C6866;
-        color: #6D727D;
         background-color: transparent;
         outline: none;
         padding-left: 10px;
@@ -55,7 +54,23 @@
 }
 
 .header{
+    display: flex;
     margin: 10px 15px 10px 15px;
+}
+
+.role{
+    color: #B9B9B9;
+    border-radius: 5px;
+    margin: 6px 15px 0 15px;
+    height: 25px;
+    font-size: 14pt;
+    width: 150px;
+    padding-right: 5px;
+    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background-size: 15px;
+    background-origin: content-box;
+    &Option{
+    }
 }
 
 .modeUpdateContainer{
@@ -83,6 +98,7 @@
     width: 45vw;
     
     &Selector{
+        color: #6D727D;
         border-radius: 10px;
         width: 100%;
         height: 40px;
@@ -115,6 +131,7 @@
         cursor: text;
     }
     &Day{
+        color: #6D727D;
         margin-right: 30px;
         border-radius: 10px;
         width: 100%;
@@ -131,24 +148,16 @@
     &Area{
         height: 100px;
     }
-    &Tools{
+    &Search{
         border-radius: 5px;
         margin-left: 10px;
         margin-top: 5px;
         height: 20px;
         font-size: 10pt;
-        width: 10%;
-    }
-    &Search{
+        width: 120px;
         border: 2px solid;
         border-color: #1C6866;
         padding-left: 10px;
-    }
-    &Role{
-        padding-right: 5px;
-        background: url("../../Resource/arrow-down.png") no-repeat right;
-        background-size: 15px;
-        background-origin: content-box;
     }
     &List{
         display: flex;
@@ -175,6 +184,10 @@
         cursor: pointer;
         p{
             font-weight: bold;
+        }
+        &:hover{
+            background-color: rgba(109, 114, 125, 0.5);
+            color: #B9B9B9;
         }
     }
     &Img{
