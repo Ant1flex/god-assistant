@@ -34,17 +34,12 @@
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  overflow: hidden; }
+  overflow: hidden;
+  cursor: pointer; }
 .damage option {
   color: #6D727D;
   outline: none; }
 .damage input {
-  color: #6D727D;
-  background-color: transparent;
-  outline: none; }
-.damage textarea {
-  border: 2px solid;
-  border-color: #1C6866;
   color: #6D727D;
   background-color: transparent;
   outline: none; }
@@ -95,7 +90,8 @@
     border-radius: 10px;
     width: 100%;
     height: 40px;
-    font-size: 14pt; }
+    font-size: 14pt;
+    cursor: text; }
   .updateDay {
     margin-right: 30px;
     border-radius: 10px;
@@ -137,18 +133,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   border: 2px solid;
   border-color: #1C6866;
   border-radius: 10px;
   height: 60px;
   width: 60px;
   overflow: hidden;
-  margin-right: 15px; }
+  margin-right: 15px;
+  cursor: pointer; }
   .operatorsElem p {
     font-weight: bold; }
 .operatorsImg {
   height: 58px;
-  width: 58px; }
+  width: 58px;
+  position: absolute;
+  top: 0;
+  left: 0; }
+.operatorsAccess {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  top: 22px;
+  left: 11.5px; }
+.operatorsNoAccess {
+  visibility: hidden; }
 
 .formula {
   display: flex;
@@ -189,7 +198,10 @@
     cursor: pointer;
     color: #B9B9B9;
     font-size: 14pt;
-    width: 100%; }
+    width: 100%;
+    height: 100%; }
+    .formulaBtn:hover {
+      background-color: rgba(109, 114, 125, 0.5); }
 
 .btnWrapper {
   display: inline-flex;
@@ -205,5 +217,7 @@
   color: #B9B9B9;
   font-size: 16pt;
   padding: 10px 20px 10px 20px; }
+  .btn:hover {
+    background-color: rgba(109, 114, 125, 0.5); }
 
 /*# sourceMappingURL=damage.css.map */

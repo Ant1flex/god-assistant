@@ -166,6 +166,13 @@ function Damage() {
   function handleRoleChange(e) {
     setState({ ...state, role: e.target.value })
   }
+  function handleAccessAll() {
+    const operators = state.operators
+    operators.forEach((operator, i, arr) => {
+      operator.access = true
+    })
+    setState({ ...state, operators: operators })
+  }
 
   const filteredOperators = state.operators.filter(operator => {
     return operator.title.toLowerCase().includes(state.search.toLowerCase())
@@ -232,11 +239,28 @@ function Damage() {
             }
           </select>
           <div className="operatorsList">
-            <div className="operatorsElem" title="Select all">
-              <p>ALL</p>
-            </div>
             {
-              filteredOperators.map((operator, key) => <div className="operatorsElem"><img className="operatorsImg" title={operator.title} src={operator.avatar} /></div>)
+              (!state.search) &&
+              <div
+                className="operatorsElem"
+                title="Select all"
+                onClick={handleAccessAll}
+              >
+                <p>ALL</p>
+              </div>
+            }
+            {
+              filteredOperators.map((operator, key) =>
+                <div
+                  className="operatorsElem"
+                  onClick={() => {
+                    const operators = state.operators
+                    operator.access = !operator.access
+                    setState({ ...state, operators: operators })
+                  }}>
+                  <img className="operatorsImg" title={operator.title} src={operator.avatar} />
+                  <img className={`operatorsAccess ${!operator.access ? 'operatorsNoAccess' : ''}`} src={'./Resource/access.png'} />
+                </div>)
             }
           </div>
         </div>
