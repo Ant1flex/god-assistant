@@ -168,10 +168,18 @@ function Damage() {
     //setState({ ...state, role: e.target.value })
     setRole(e.target.value)
   }
+
   function handleAccessAll() {
-    const operators = state.operators
+    let operators = state.operators
     operators.forEach((operator, i, arr) => {
       operator.access = true
+    })
+    setState({ ...state, operators: operators })
+  }
+  function handleAccessNone() {
+    let operators = state.operators
+    operators.forEach((operator, i, arr) => {
+      operator.access = false
     })
     setState({ ...state, operators: operators })
   }
@@ -187,10 +195,11 @@ function Damage() {
   console.log(state)
 
   return (
-    <div className="damage">
-      <div className="header">
-        <h1>Damage dealer</h1>
-        <select
+    <div className="contentWrapper">
+      <div className="content">
+        <div className="header">
+          <h1>Damage dealer</h1>
+          <select
             name="role_selector"
             className="role"
             value={role}
@@ -200,96 +209,102 @@ function Damage() {
               roleArray.map((role, key) => <option className="roleOption" value={role} key={key}>{role}</option>)
             }
           </select>
-      </div>
-      <div className="modeUpdateContainer">
-        <div className="mode contentContainer">
-          <h2>Battle mode</h2>
-          <select
-            name="mode_selector"
-            className="modeSelector"
-            value={mode}
-            onChange={e => handleModeChange(e)}>
-            <option value="" selected hidden>Choose battle mode...</option>
-            {
-              modeArray.map((mode, key) => <option className="modeOption" value={mode} key={key}>{mode}</option>)
-            }
-          </select>
         </div>
-        <div className="update contentContainer">
-          <h2>Update time/day</h2>
-          <div className="updateContent">
-            <input type="time" className="updateTime superstyle" onChange={handleTimeChange} value={time}></input>
+        <div className="modeUpdateContainer">
+          <div className="mode contentContainer">
+            <h2>Battle mode</h2>
             <select
-              name="day_selector"
-              className="updateDay"
-              value={day}
-              onChange={e => handleDayChange(e)}>
-              <option value="?" selected hidden>Choose day...</option>
+              name="mode_selector"
+              className="modeSelector"
+              value={mode}
+              onChange={e => handleModeChange(e)}>
+              <option value="" selected hidden>Choose battle mode...</option>
               {
-                dayArray.map((day, key) => <option className="dayOption" value={day} key={key}>{day}</option>)
+                modeArray.map((mode, key) => <option className="modeOption" value={mode} key={key}>{mode}</option>)
               }
             </select>
           </div>
+          <div className="update contentContainer">
+            <h2>Update time/day</h2>
+            <div className="updateContent">
+              <input type="time" className="updateTime superstyle" onChange={handleTimeChange} value={time}></input>
+              <select
+                name="day_selector"
+                className="updateDay"
+                value={day}
+                onChange={e => handleDayChange(e)}>
+                <option value="?" selected hidden>Choose day...</option>
+                {
+                  dayArray.map((day, key) => <option className="dayOption" value={day} key={key}>{day}</option>)
+                }
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="operators contentContainer">
-        <h2>Avilable operators</h2>
-        <div className="operatorsArea area">
-          <input
-            type="text"
-            className="operatorsSearch"
-            placeholder="Search..."
-            onChange={handleSearchChange}></input>
-          <div className="operatorsList">
-            {
-              (!state.search) &&
-              <div
-                className="operatorsElem"
-                title="Select all"
-                onClick={handleAccessAll}
-              >
-                <p>ALL</p>
-                <div className="operatorHover"> </div>
-              </div>
-            }
-            {
-              filteredOperators.map((operator, key) =>
+        <div className="operators contentContainer">
+          <h2>Avilable operators</h2>
+          <div className="operatorsArea area">
+            <input
+              type="text"
+              className="operatorsSearch"
+              placeholder="Search..."
+              onChange={handleSearchChange}></input>
+            <div className="operatorsList">
+              {
+                (!state.search) &&
                 <div
-                  className="operatorsElem"
-                  onClick={() => {
-                    const operators = state.operators
-                    operator.access = !operator.access
-                    setState({ ...state, operators: operators })
-                  }}>
-                  <img className="operatorsImg" title={operator.title} src={operator.avatar} />
-                  <img className={`operatorsAccess ${!operator.access ? 'operatorsNoAccess' : ''}`} src={'./Resource/access.png'} />
-                  <div className="operatorHover"> </div>
-                </div>)
-            }
+                  className="operatorsElem operatorsAllNoneContainer"
+                  title="Select all"
+                >
+                  <div className="operatorsAll operatorsAllNone" onClick={handleAccessAll}>
+                    <div>ALL</div>
+                  </div>
+                  <div className="operatorsNone operatorsAllNone" onClick={handleAccessNone}>
+                    <div>NONE</div>
+                  </div>
+                </div>
+              }
+              {
+                filteredOperators.map((operator, key) =>
+                  <div
+                    className="operatorsElem"
+                    onClick={() => {
+                      const operators = state.operators
+                      operator.access = !operator.access
+                      setState({ ...state, operators: operators })
+                    }}>
+                    <img className="operatorsImg" title={operator.title} src={operator.avatar} />
+                    <img className={`operatorsAccess ${!operator.access ? 'operatorsNoAccess' : ''}`} src={'./Resource/access.png'} />
+                  </div>)
+              }
+            </div>
+          </div>
+        </div>
+        <div className="formula contentContainer">
+          <h2>Points calculator</h2>
+          <div className="formulaArea area">
+            <input type="text" className="formulaText" placeholder="Formula..."></input>
+            <div className="formulaBtnContainer">
+              {
+                formulaBtnArray.map((elem, key) => <div className="formulaBtnWrapper"><button className="formulaBtn">{elem.name}</button></div>)
+              }
+            </div>
           </div>
         </div>
       </div>
-      <div className="formula contentContainer">
-        <h2>Points calculator</h2>
-        <div className="formulaArea area">
-          <input type="text" className="formulaText" placeholder="Formula..."></input>
-          <div className="formulaBtnContainer">
-            {
-              formulaBtnArray.map((elem, key) => <div className="formulaBtnWrapper"><button className="formulaBtn">{elem.name}</button></div>)
-            }
+      <div className="btnContainer">
+          <div className="btnWrapper">
+            <button className="btn pauseBtn">Pause event</button>
+          </div>
+          <div className="btnWrapper">
+            <button className="btn currentBtn">Current rules</button>
+          </div>
+          <div className="btnWrapper">
+            <button className="btn updateBtn">Update rules</button>
           </div>
         </div>
-      </div>
-      <div className="btnWrapper">
-        <button className="btn pauseBtn">Pause event</button>
-      </div>
-      <div className="btnWrapper">
-        <button className="btn currentBtn">Current rules</button>
-      </div>
-      <div className="btnWrapper">
-        <button className="btn updateBtn">Update rules</button>
-      </div>
     </div>
+
   );
 }
 

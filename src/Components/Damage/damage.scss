@@ -14,8 +14,13 @@
     align-items: center;
 }
 
-.damage{
-    
+.content{
+    &Wrapper{
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
     h1 {
         font-size: 18pt;
         color: #B9B9B9;
@@ -30,9 +35,11 @@
     select {
         position: relative;
         display: inline-block;
-        border: 2px solid;
-        border-color: #1C6866;
-        background-color: transparent;
+        border: none;
+        background-color: rgba(109, 114, 125, 0.25 );
+        // border: 2px solid;
+        // border-color: #1C6866;
+        // background-color: transparent;
         outline: none;
         padding-left: 10px;
         -webkit-appearance: none;
@@ -85,11 +92,12 @@
 
 .area{
     margin-right: 30px;
-    border: 2px solid;
-    border-color: #1C6866;
+    // border: 2px solid;
+    // border-color: #1C6866;
     border-radius: 10px;
     color: #6D727D;
     background-color: transparent;
+    background-color: rgba(109, 114, 125, 0.25 );
     outline: none;
     
 }
@@ -121,6 +129,7 @@
         width: 100%;
     }
     &Time{
+        background-color: rgba(109, 114, 125, 0.25 );
         border: 2px solid;
         border-color: #1C6866;
         margin-right: 20px;
@@ -182,9 +191,6 @@
         margin-right: 15px;
         // margin: auto;
         cursor: pointer;
-        p{
-            font-weight: bold;
-        }
         &:hover{
             background-color: rgba(109, 114, 125, 0.5);
             color: #B9B9B9;
@@ -207,6 +213,32 @@
     &NoAccess{
         visibility: hidden;
     }
+    &AllNoneContainer{
+        display: flex;
+        flex-direction: column;
+        &:hover{
+            background-color: transparent;
+            color: #6D727D;
+        }
+    }
+    &AllNone{
+        display: flex;
+        justify-content: center;
+        height: 50%;
+        width: 100%;
+        font-weight: bold;
+        div{
+            margin-top: 2px;
+        }
+        &:hover{
+            background-color: rgba(109, 114, 125, 0.5);
+            color: #B9B9B9;
+        }
+    }
+    &All{
+        border-bottom: 2px solid;
+        border-color: #1C6866;
+    }
 }
 .formula{
     display: flex;
@@ -217,8 +249,6 @@
     }
     &Text{
         border: none;
-        border-bottom: 2px solid;
-        border-color: #1C6866;
         margin-top: 2.5px;
         height: 30px;
         font-size: 14pt;
@@ -226,11 +256,13 @@
         padding-left: 20px;
     }
     &BtnContainer{
+        border-top: 2px solid;
+        border-color: #1C6866;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        margin: 0 10px 5px 10px;
+        margin: 0 15px 5px 15px;
     }
     &BtnWrapper{
         display: inline-flex;
@@ -241,10 +273,10 @@
         border: 2px solid;
         border-color: #1C6866;
         border-radius: 5px;
-        height: 35px;
+        height: 30px;
         min-width: 150px;
         width: auto;
-        margin: 5px 5px 0 5px;
+        margin: 10px 5px 0 5px;
     }
 
     &Btn{
@@ -261,21 +293,32 @@
     }
 }
 
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 120px;
+}
+
 .btnWrapper{
     display: inline-flex;
     border: 2px solid;
     border-color: #1C6866;
     border-radius: 10px;
-    margin: 10px 10px 0 10px;
+    width: 150px;
+    height: 35px;
+    margin: 5px 10px 5px 10px;
+    background-color: rgba(28,104,102, 0.8);
 }
 
 .btn{
         background-color: transparent;
         border: none;
+        border-radius: 10px;
         cursor: pointer;
         color: #B9B9B9;
-        font-size: 16pt;
-        padding: 10px 20px 10px 20px;
+        font-size: 14pt;
+        width: 100%;
+        height: 100%; 
         &:hover{
             background-color: rgba(109, 114, 125, 0.5);
         }
