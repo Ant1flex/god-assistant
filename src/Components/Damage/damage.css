@@ -157,6 +157,8 @@
   .operatorsElem:hover {
     background-color: rgba(109, 114, 125, 0.5);
     color: #B9B9B9; }
+  .operatorsElemHidden {
+    visibility: hidden; }
 .operatorsImg {
   height: 58px;
   width: 58px;
@@ -169,44 +171,58 @@
   position: absolute;
   top: 22px;
   left: 11.5px; }
-.operatorsNoAccess {
-  visibility: hidden; }
 .operatorsAllNoneContainer {
   display: flex;
-  flex-direction: column; }
+  position: relative; }
   .operatorsAllNoneContainer:hover {
     background-color: transparent;
     color: #6D727D; }
 .operatorsAllNone {
   display: flex;
   justify-content: center;
-  height: 50%;
+  align-items: center;
+  position: absolute;
   width: 100%;
+  height: 100%;
   font-weight: bold; }
   .operatorsAllNone div {
-    margin-top: 2px; }
+    margin-bottom: 2.5px; }
   .operatorsAllNone:hover {
     background-color: rgba(109, 114, 125, 0.5);
     color: #B9B9B9; }
-.operatorsAll {
-  border-bottom: 2px solid;
-  border-color: #1C6866; }
 
 .formula {
   display: flex;
   flex-direction: column; }
   .formulaArea {
     height: 120px; }
+  .formulaInputContainer {
+    display: flex; }
+    .formulaInputContainer select {
+      background-color: rgba(109, 114, 125, 0);
+      border: 2px solid;
+      border-color: #1C6866; }
   .formulaText {
     border: none;
     margin-top: 2.5px;
     height: 30px;
     font-size: 14pt;
-    width: 100%;
-    padding-left: 20px; }
+    width: 70%;
+    padding-left: 20px;
+    border-bottom: 2px solid;
+    border-color: #1C6866; }
+  .formulaPreset {
+    color: #6D727D;
+    border-radius: 5px;
+    margin: 5px 5px 0 10px;
+    height: 27.5px;
+    font-size: 14pt;
+    width: 30%;
+    padding-right: 5px;
+    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background-size: 15px;
+    background-origin: content-box; }
   .formulaBtnContainer {
-    border-top: 2px solid;
-    border-color: #1C6866;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;

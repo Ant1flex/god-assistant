@@ -19,7 +19,7 @@ function Damage() {
       name: 'fsb2016a',
       title: 'Перун',
       avatar: './Resource/avatars/UI_PL_RUS_FSB2016_A_Small.png',
-      access: false
+      access: true
     },
     {
       id: 3,
@@ -33,14 +33,14 @@ function Damage() {
       name: '22spn2016a',
       title: 'Плут',
       avatar: './Resource/avatars/UI_PL_RUS_22SPN2016_A_Small.png',
-      access: false
+      access: true
     },
     {
       id: 5,
       name: 'grom2014a',
       title: 'Кошмар',
       avatar: './Resource/avatars/UI_PL_POL_GROM2014_A_Small.png',
-      access: false
+      access: true
     },
   ]
   const supportArray = [
@@ -121,17 +121,30 @@ function Damage() {
       value: 'revives'
     },
   ]
+  const formulasArray = [
+    {
+      value: 'A + B = C'
+    },
+    {
+      value: 'A / B = C'
+    },
+    {
+      value: '(A + B) / C = D'
+    },
+  ]
 
   const [role, setRole] = useState('Assault')
-  const [mode, setMode] = useState('')
-  const [time, setTime] = useState('')
-  const [day, setDay] = useState('Choose day...')
+  const [mode, setMode] = useState('Ranked')
+  const [time, setTime] = useState('00:00')
+  const [day, setDay] = useState('Wednesday')
   const [state, setState] = useState({
     search: '',
     role: '',
     operators: [],
   })
   const [formula, setFormula] = useState('')
+
+  const [selectFlag, setSelectFlag] = useState(true)
 
   useEffect(() => {
     switch (role) {
@@ -151,6 +164,15 @@ function Damage() {
         setState({ ...state, operators: assaultArray })
     }
   }, [role])
+
+  // useEffect(() => {
+  //   state.operators.forEach((operator) => {
+  //     if(operator.access == false){
+  //       setSelectFlag(false)
+  //       console.log('tttttt')
+  //     }
+  //   })
+  // }, state.operators)
 
   function handleModeChange(e) {
     setMode(e.target.value)
@@ -175,6 +197,7 @@ function Damage() {
       operator.access = true
     })
     setState({ ...state, operators: operators })
+    setSelectFlag(false)
   }
   function handleAccessNone() {
     let operators = state.operators
@@ -182,6 +205,7 @@ function Damage() {
       operator.access = false
     })
     setState({ ...state, operators: operators })
+    setSelectFlag(true)
   }
 
   const filteredOperators = state.operators.filter(operator => {
@@ -256,10 +280,10 @@ function Damage() {
                   className="operatorsElem operatorsAllNoneContainer"
                   title="Select all"
                 >
-                  <div className="operatorsAll operatorsAllNone" onClick={handleAccessAll}>
+                  <div className={`operatorsAllNone ${!selectFlag ? 'operatorsElemHidden' : ''}`} onClick={handleAccessAll}>
                     <div>ALL</div>
                   </div>
-                  <div className="operatorsNone operatorsAllNone" onClick={handleAccessNone}>
+                  <div className={`operatorsAllNone ${selectFlag ? 'operatorsElemHidden' : ''}`} onClick={handleAccessNone}>
                     <div>NONE</div>
                   </div>
                 </div>
@@ -271,10 +295,13 @@ function Damage() {
                     onClick={() => {
                       const operators = state.operators
                       operator.access = !operator.access
+                      if (!operator.access) {
+                        setSelectFlag(true)
+                      }
                       setState({ ...state, operators: operators })
                     }}>
                     <img className="operatorsImg" title={operator.title} src={operator.avatar} />
-                    <img className={`operatorsAccess ${!operator.access ? 'operatorsNoAccess' : ''}`} src={'./Resource/access.png'} />
+                    <img className={`operatorsAccess ${!operator.access ? 'operatorsElemHidden' : ''}`} src={'./Resource/access.png'} />
                   </div>)
               }
             </div>
@@ -283,7 +310,18 @@ function Damage() {
         <div className="formula contentContainer">
           <h2>Points calculator</h2>
           <div className="formulaArea area">
-            <input type="text" className="formulaText" placeholder="Formula..."></input>
+            <div className="formulaInputContainer">
+              <input type="text" className="formulaText" placeholder="Formula..."></input>
+              <select
+                name="formula_selector"
+                className="formulaPreset"
+                onChange={e => handleRoleChange(e)}>
+                <option value="?" selected hidden>Choose formula preset...</option>
+                {
+                  formulasArray.map((formula, key) => <option className="roleOption" value={formula.value} key={key}>{formula.value}</option>)
+                }
+              </select>
+            </div>
             <div className="formulaBtnContainer">
               {
                 formulaBtnArray.map((elem, key) => <div className="formulaBtnWrapper"><button className="formulaBtn">{elem.name}</button></div>)
@@ -293,16 +331,16 @@ function Damage() {
         </div>
       </div>
       <div className="btnContainer">
-          <div className="btnWrapper">
-            <button className="btn pauseBtn">Pause event</button>
-          </div>
-          <div className="btnWrapper">
-            <button className="btn currentBtn">Current rules</button>
-          </div>
-          <div className="btnWrapper">
-            <button className="btn updateBtn">Update rules</button>
-          </div>
+        <div className="btnWrapper">
+          <button className="btn pauseBtn">Pause event</button>
         </div>
+        <div className="btnWrapper">
+          <button className="btn currentBtn">Current rules</button>
+        </div>
+        <div className="btnWrapper">
+          <button className="btn updateBtn">Update rules</button>
+        </div>
+      </div>
     </div>
 
   );
