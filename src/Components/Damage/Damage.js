@@ -1,12 +1,13 @@
+import { concat } from "lodash"
 import React, { useEffect, useState } from "react"
 
 import "./damage.css"
 
 function Damage() {
-  const modeArray = ['Ranked', 'Showdown', 'Annihilation', 'Onslaught']
-  const dayArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-  const roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
-  const assaultArray = [
+  let modeArray = ['Ranked', 'Showdown', 'Annihilation', 'Onslaught']
+  let dayArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
+  let assaultArray = [
     {
       id: 1,
       name: 'fsb2004a',
@@ -43,7 +44,7 @@ function Damage() {
       access: true
     },
   ]
-  const supportArray = [
+  let supportArray = [
     {
       id: 1,
       name: 'fsb2004g',
@@ -59,7 +60,7 @@ function Damage() {
       access: false
     },
   ]
-  const medicArray = [
+  let medicArray = [
     {
       id: 1,
       name: 'fsb2004m',
@@ -75,7 +76,7 @@ function Damage() {
       access: false
     },
   ]
-  const sniperArray = [
+  let sniperArray = [
     {
       id: 1,
       name: 'fsb2004s',
@@ -91,7 +92,7 @@ function Damage() {
       access: false
     },
   ]
-  const formulaBtnArray = [
+  let formulaBtnArray = [
     {
       name: 'Rounds',
       value: 'rounds'
@@ -121,15 +122,15 @@ function Damage() {
       value: 'revives'
     },
   ]
-  const formulasArray = [
+  let formulasArray = [
     {
-      value: 'A + B = C'
+      value: "A + B = C"
     },
     {
-      value: 'A / B = C'
+      value: "A / B = C"
     },
     {
-      value: '(A + B) / C = D'
+      value: "(A + B) / C = D"
     },
   ]
 
@@ -143,8 +144,11 @@ function Damage() {
     operators: [],
   })
   const [formula, setFormula] = useState('')
+  const [formulasList, setFormulasList] = useState(formulasArray)
 
   const [selectFlag, setSelectFlag] = useState(true)
+  const [savePresetFlag, setSavePresetFlag] = useState(false)
+  const [deletePresetFlag, setDeletePresetFlag] = useState(false)
 
   useEffect(() => {
     switch (role) {
@@ -165,14 +169,19 @@ function Damage() {
     }
   }, [role])
 
-  // useEffect(() => {
-  //   state.operators.forEach((operator) => {
-  //     if(operator.access == false){
-  //       setSelectFlag(false)
-  //       console.log('tttttt')
-  //     }
-  //   })
-  // }, state.operators)
+  useEffect(() => {
+    let tempArr = formulasList.map(elem => elem.value)
+    if(!formula){
+      setSavePresetFlag(false)
+      setDeletePresetFlag(false)
+    } else if(formula && tempArr.every(elem => elem.toLowerCase().replaceAll(' ', '') !== formula.toLowerCase().replaceAll(' ', ''))){
+      setSavePresetFlag(true)
+      setDeletePresetFlag(false)
+    } else {
+      setSavePresetFlag(false)
+      setDeletePresetFlag(true)
+    }
+  }, [formula, formulasList])
 
   function handleModeChange(e) {
     setMode(e.target.value)
@@ -189,6 +198,12 @@ function Damage() {
   function handleRoleChange(e) {
     //setState({ ...state, role: e.target.value })
     setRole(e.target.value)
+  }
+  function handleFormulaTextChange(e) {
+    setFormula(e.target.value)
+  }
+  function handleFormulaPresetChange(e) {
+    setFormula(e.target.value)
   }
 
   function handleAccessAll() {
@@ -207,16 +222,30 @@ function Damage() {
     setState({ ...state, operators: operators })
     setSelectFlag(true)
   }
+  function handleSave() {
+    let newFormulasArray = [...formulasList, { value: formula }]
+    // let uniqueValues = newFormulasArray.reduce((acc, elem) => {
+    //   if(acc.map[elem.value]){
+    //     return acc
+    //   }
+    //   acc.map[elem.value] = true
+    //   acc.uniqueValues.push(elem)
+    //   return acc
+    // }, {
+    //   map: {},
+    //   uniqueValues: []
+    // }).uniqueValues;
+    // console.log(uniqueValues)
+    setFormulasList(newFormulasArray)
+  }
+  function handleDelete() {
+    let newFormulasArray = formulasList.filter(elem => elem.value.toLowerCase() !== formula.toLowerCase())
+    setFormulasList(newFormulasArray)
+  }
 
   const filteredOperators = state.operators.filter(operator => {
     return operator.title.toLowerCase().includes(state.search.toLowerCase())
   })
-
-
-  console.log(mode)
-  console.log(day)
-  console.log(time)
-  console.log(state)
 
   return (
     <div className="contentWrapper">
@@ -226,6 +255,7 @@ function Damage() {
           <select
             name="role_selector"
             className="role"
+            title="Select role"
             value={role}
             onChange={e => handleRoleChange(e)}>
             <option value="?" selected disabled hidden>Choose role...</option>
@@ -240,6 +270,7 @@ function Damage() {
             <select
               name="mode_selector"
               className="modeSelector"
+              title="Select battle mode"
               value={mode}
               onChange={e => handleModeChange(e)}>
               <option value="" selected hidden>Choose battle mode...</option>
@@ -251,10 +282,11 @@ function Damage() {
           <div className="update contentContainer">
             <h2>Update time/day</h2>
             <div className="updateContent">
-              <input type="time" className="updateTime superstyle" onChange={handleTimeChange} value={time}></input>
+              <input type="time" className="updateTime superstyle" title="Enter deadline time" onChange={handleTimeChange} value={time}></input>
               <select
                 name="day_selector"
                 className="updateDay"
+                title="Select deadline day"
                 value={day}
                 onChange={e => handleDayChange(e)}>
                 <option value="?" selected hidden>Choose day...</option>
@@ -272,19 +304,19 @@ function Damage() {
               type="text"
               className="operatorsSearch"
               placeholder="Search..."
+              title="Enter operator name"
               onChange={handleSearchChange}></input>
             <div className="operatorsList">
               {
                 (!state.search) &&
                 <div
                   className="operatorsElem operatorsAllNoneContainer"
-                  title="Select all"
                 >
-                  <div className={`operatorsAllNone ${!selectFlag ? 'operatorsElemHidden' : ''}`} onClick={handleAccessAll}>
-                    <div>ALL</div>
+                  <div className={`operatorsAllNone ${!selectFlag ? 'hidden' : ''}`} onClick={handleAccessAll}>
+                    <div title="Select all">ALL</div>
                   </div>
-                  <div className={`operatorsAllNone ${selectFlag ? 'operatorsElemHidden' : ''}`} onClick={handleAccessNone}>
-                    <div>NONE</div>
+                  <div className={`operatorsAllNone ${selectFlag ? 'hidden' : ''}`} onClick={handleAccessNone}>
+                    <div title="Select none">NONE</div>
                   </div>
                 </div>
               }
@@ -301,7 +333,7 @@ function Damage() {
                       setState({ ...state, operators: operators })
                     }}>
                     <img className="operatorsImg" title={operator.title} src={operator.avatar} />
-                    <img className={`operatorsAccess ${!operator.access ? 'operatorsElemHidden' : ''}`} src={'./Resource/access.png'} />
+                    <img className={`operatorsAccess ${!operator.access ? 'hidden' : ''}`} src={'./Resource/access.png'} />
                   </div>)
               }
             </div>
@@ -311,20 +343,48 @@ function Damage() {
           <h2>Points calculator</h2>
           <div className="formulaArea area">
             <div className="formulaInputContainer">
-              <input type="text" className="formulaText" placeholder="Formula..."></input>
+              <input
+                title="Enter formula"
+                type="text"
+                className="formulaText"
+                placeholder="Formula..."
+                value={formula}
+                onChange={handleFormulaTextChange}
+              ></input>
+              <div className="formulaPresetBtnContainer">
+                <button
+                  className={`formulaPresetBtn formulaPresetBtnSave ${savePresetFlag ? '' : 'hidden'}`}
+                  onClick={handleSave}>
+                  <img className="formulaPresetBtnSaveImg" title="Save preset" src={'./Resource/save.png'} />
+                </button>
+                <button
+                  className={`formulaPresetBtn formulaPresetBtnDelete ${deletePresetFlag ? '' : 'hidden'}`}
+                  onClick={handleDelete}>
+                  <img className="formulaPresetBtnDeleteImg" title="Delete preset" src={'./Resource/delete.png'} />
+                </button>
+              </div>
               <select
                 name="formula_selector"
                 className="formulaPreset"
-                onChange={e => handleRoleChange(e)}>
+                title="Select formula preset"
+                onChange={e => handleFormulaPresetChange(e)}>
                 <option value="?" selected hidden>Choose formula preset...</option>
                 {
-                  formulasArray.map((formula, key) => <option className="roleOption" value={formula.value} key={key}>{formula.value}</option>)
+                  formulasList.map((formula, key) => <option className="formulaOption" value={formula.value} key={key}>{formula.value}</option>)
                 }
               </select>
             </div>
             <div className="formulaBtnContainer">
               {
-                formulaBtnArray.map((elem, key) => <div className="formulaBtnWrapper"><button className="formulaBtn">{elem.name}</button></div>)
+                formulaBtnArray.map((elem, key) =>
+                  <div className="formulaBtnWrapper">
+                    <button
+                      className="formulaBtn"
+                      onClick={() => {
+                        setFormula(formula.concat('', elem.value))
+                      }}
+                    >{elem.name}</button>
+                  </div>)
               }
             </div>
           </div>

@@ -47,6 +47,10 @@
   background-color: transparent;
   outline: none; }
 
+.hidden {
+  visibility: hidden;
+  position: absolute; }
+
 .header {
   display: flex;
   margin: 10px 15px 10px 15px; }
@@ -59,7 +63,7 @@
   font-size: 14pt;
   width: 150px;
   padding-right: 5px;
-  background: url("../../Resource/arrow-down.png") no-repeat right;
+  background: url("../../../public/Resource/arrow-down.png") no-repeat right;
   background-size: 15px;
   background-origin: content-box; }
 
@@ -88,7 +92,7 @@
     height: 40px;
     font-size: 14pt;
     padding-right: 10px;
-    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background: url("../../../public/Resource/arrow-down.png") no-repeat right;
     background-size: 25px;
     background-origin: content-box; }
 
@@ -117,7 +121,7 @@
     height: 40px;
     font-size: 14pt;
     padding-right: 10px;
-    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background: url("../../../public/Resource/arrow-down.png") no-repeat right;
     background-size: 25px;
     background-origin: content-box; }
 
@@ -157,8 +161,6 @@
   .operatorsElem:hover {
     background-color: rgba(109, 114, 125, 0.5);
     color: #B9B9B9; }
-  .operatorsElemHidden {
-    visibility: hidden; }
 .operatorsImg {
   height: 58px;
   width: 58px;
@@ -186,8 +188,16 @@
   height: 100%;
   font-weight: bold; }
   .operatorsAllNone div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     margin-bottom: 2.5px; }
   .operatorsAllNone:hover {
+    background-color: rgba(109, 114, 125, 0.5);
+    color: #B9B9B9; }
+  .operatorsAllNone:focus {
     background-color: rgba(109, 114, 125, 0.5);
     color: #B9B9B9; }
 
@@ -197,7 +207,8 @@
   .formulaArea {
     height: 120px; }
   .formulaInputContainer {
-    display: flex; }
+    display: flex;
+    justify-content: space-between; }
     .formulaInputContainer select {
       background-color: rgba(109, 114, 125, 0);
       border: 2px solid;
@@ -214,14 +225,37 @@
   .formulaPreset {
     color: #6D727D;
     border-radius: 5px;
-    margin: 5px 5px 0 10px;
+    margin: 5px 5px 0 5px;
     height: 27.5px;
     font-size: 14pt;
     width: 30%;
     padding-right: 5px;
-    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background: url("../../../public/Resource/arrow-down.png") no-repeat right;
     background-size: 15px;
     background-origin: content-box; }
+    .formulaPresetBtnContainer {
+      display: flex;
+      width: 27.5px;
+      height: 27.5px;
+      margin: 5px 0 0 5px; }
+    .formulaPresetBtn {
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      color: #B9B9B9;
+      font-size: 14pt; }
+      .formulaPresetBtnSaveImg {
+        cursor: pointer;
+        width: 100%;
+        height: 100%; }
+        .formulaPresetBtnSaveImg:hover {
+          content: url(../../../public/Resource/save-active.png); }
+      .formulaPresetBtnDeleteImg {
+        cursor: pointer;
+        width: 100%;
+        height: 100%; }
+        .formulaPresetBtnDeleteImg:hover {
+          content: url(../../../public/Resource/delete-active.png); }
   .formulaBtnContainer {
     display: flex;
     flex-wrap: wrap;

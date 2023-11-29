@@ -61,6 +61,11 @@
     }
 }
 
+.hidden{
+    visibility: hidden;
+    position: absolute;
+}
+
 .header{
     display: flex;
     margin: 10px 15px 10px 15px;
@@ -74,7 +79,7 @@
     font-size: 14pt;
     width: 150px;
     padding-right: 5px;
-    background: url("../../Resource/arrow-down.png") no-repeat right;
+    background: url("../../../public/Resource/arrow-down.png") no-repeat right;
     background-size: 15px;
     background-origin: content-box;
 }
@@ -111,7 +116,7 @@
         height: 40px;
         font-size: 14pt;
         padding-right: 10px;
-        background: url("../../Resource/arrow-down.png") no-repeat right;
+        background: url("../../../public/Resource/arrow-down.png") no-repeat right;
         background-size: 25px;
         background-origin: content-box;
     }
@@ -146,7 +151,7 @@
         height: 40px;
         font-size: 14pt;
         padding-right: 10px;
-        background: url("../../Resource/arrow-down.png") no-repeat right;
+        background: url("../../../public/Resource/arrow-down.png") no-repeat right;
         background-size: 25px;
         background-origin: content-box;
     }
@@ -194,9 +199,6 @@
             background-color: rgba($contentMainBgColor, 0.5);
             color: $contentExtraTxtColor;
         }
-        &Hidden{
-            visibility: hidden;
-        }
     }
     &Img{
         height: 58px;
@@ -229,9 +231,18 @@
         height: 100%;
         font-weight: bold;
         div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
             margin-bottom: 2.5px;
         }
         &:hover{
+            background-color: rgba($contentMainBgColor, 0.5);
+            color: $contentExtraTxtColor;
+        }
+        &:focus{
             background-color: rgba($contentMainBgColor, 0.5);
             color: $contentExtraTxtColor;
         }
@@ -246,6 +257,7 @@
     }
     &InputContainer{
         display: flex;
+        justify-content: space-between;
         select{
             background-color: rgba($contentMainBgColor, 0);
             border: 2px solid;
@@ -265,15 +277,51 @@
     &Preset{
         color: $contentMainTxtColor;
         border-radius: 5px;
-        margin: 5px 5px 0 10px;
+        margin: 5px 5px 0 5px;
         height: 27.5px;
         font-size: 14pt;
         width: 30%;
         padding-right: 5px;
-        background: url("../../Resource/arrow-down.png") no-repeat right;
+        background: url("../../../public/Resource/arrow-down.png") no-repeat right;
         background-size: 15px;
         background-origin: content-box;
-
+        &BtnContainer{
+            display: flex;
+            width: 27.5px;
+            height: 27.5px;
+            margin: 5px 0 0 5px;
+        }
+        &Btn{
+            background-color: transparent;
+            border: none;
+            border-radius: 5px;
+            color: $contentExtraTxtColor;
+            font-size: 14pt;
+            // width: 27.5px;
+            // height: 27.5px;
+            // margin: 5px 0 0 5px;
+            &Save{
+                &Img{
+                    cursor: pointer;
+                    width: 100%;
+                    height: 100%;
+                    &:hover{
+                    content: url(../../../public/Resource/save-active.png);
+                    }
+                }
+                
+            }
+            &Delete{
+                &Img{
+                    cursor: pointer;
+                    width: 100%;
+                    height: 100%;
+                    &:hover{
+                        content: url(../../../public/Resource/delete-active.png);
+                    }
+                }
+            }
+        }
     }
     &BtnContainer{
         // border-top: 2px solid;

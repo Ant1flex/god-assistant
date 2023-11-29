@@ -21,7 +21,7 @@ code {
 
 .App{
   position: relative;
-  background-image: url("./Resource/background.png");
+  background-image: url("../public/Resource/background.png");
   background-size: cover;
   height: 100vh;
   width: 100vw;
