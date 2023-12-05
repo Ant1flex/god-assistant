@@ -344,6 +344,19 @@ function Damage() {
   }, [])
 
   useEffect(() => {
+    fetch("https://god-assistant.vercel.app/test.json")
+      .then(data => data.json())
+      .then((data) => {
+        // modeArray = [...data.damageCard.modeArray]
+        setModeArray(data.damageCard.modeArray)
+        data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
+
+        setDayArray(data.damageCard.dayArray)
+        data.damageCard.dayArray.filter((day) => day.isEnable).map((day) => setDay(day.name))
+      })
+  }, [])
+
+  useEffect(() => {
     switch (role) {
       case 'Assault':
         setState({ ...state, operators: assaultArray })
