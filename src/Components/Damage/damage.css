@@ -48,8 +48,7 @@
   outline: none; }
 
 .hidden {
-  visibility: hidden;
-  position: absolute; }
+  visibility: hidden; }
 
 .header {
   display: flex;
@@ -235,6 +234,7 @@
     background-origin: content-box; }
     .formulaPresetBtnContainer {
       display: flex;
+      position: relative;
       width: 27.5px;
       height: 27.5px;
       margin: 5px 0 0 5px; }
@@ -244,18 +244,22 @@
       border-radius: 5px;
       color: #B9B9B9;
       font-size: 14pt; }
-      .formulaPresetBtnSaveImg {
-        cursor: pointer;
-        width: 100%;
-        height: 100%; }
-        .formulaPresetBtnSaveImg:hover {
-          content: url(../../../public/Resource/save-active.png); }
-      .formulaPresetBtnDeleteImg {
-        cursor: pointer;
-        width: 100%;
-        height: 100%; }
-        .formulaPresetBtnDeleteImg:hover {
-          content: url(../../../public/Resource/delete-active.png); }
+      .formulaPresetBtnSave {
+        position: absolute; }
+        .formulaPresetBtnSaveImg {
+          cursor: pointer;
+          width: 100%;
+          height: 100%; }
+          .formulaPresetBtnSaveImg:hover {
+            content: url(../../../public/Resource/save-active.png); }
+      .formulaPresetBtnDelete {
+        position: absolute; }
+        .formulaPresetBtnDeleteImg {
+          cursor: pointer;
+          width: 100%;
+          height: 100%; }
+          .formulaPresetBtnDeleteImg:hover {
+            content: url(../../../public/Resource/delete-active.png); }
   .formulaBtnContainer {
     display: flex;
     flex-wrap: wrap;

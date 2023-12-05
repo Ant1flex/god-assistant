@@ -1,11 +1,184 @@
 import { concat } from "lodash"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 
 import "./damage.css"
 
 function Damage() {
-  let modeArray = ['Ranked', 'Showdown', 'Annihilation', 'Onslaught']
-  let dayArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  // let modeArray = [
+  //   {
+  //     name: 'Ranked',
+  //     isEnable: true
+  //   },
+  //   {
+  //     name: 'Showdown',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Annihilation',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Onslaught',
+  //     isEnable: false
+  //   },
+  // ]
+  // let dayArray = [
+  //   {
+  //     name: 'Monday',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Tuesday',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Wednesday',
+  //     isEnable: true
+  //   },
+  //   {
+  //     name: 'Thursday',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Friday',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Saturday',
+  //     isEnable: false
+  //   },
+  //   {
+  //     name: 'Sunday',
+  //     isEnable: false
+  //   },
+  // ]
+  // let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
+  // let assaultArray = [
+  //   {
+  //     id: 1,
+  //     name: 'fsb2004a',
+  //     title: 'Волк',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_A_Small.png',
+  //     access: false
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'fsb2016a',
+  //     title: 'Перун',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_A_Small.png',
+  //     access: true
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'sso2013a',
+  //     title: 'Ворон',
+  //     avatar: './Resource/avatars/UI_PL_RUS_SSO2013_A_ES_Small.png',
+  //     access: false
+  //   },
+  //   {
+  //     id: 4,
+  //     name: '22spn2016a',
+  //     title: 'Плут',
+  //     avatar: './Resource/avatars/UI_PL_RUS_22SPN2016_A_Small.png',
+  //     access: true
+  //   },
+  //   {
+  //     id: 5,
+  //     name: 'grom2014a',
+  //     title: 'Кошмар',
+  //     avatar: './Resource/avatars/UI_PL_POL_GROM2014_A_Small.png',
+  //     access: true
+  //   },
+  // ]
+  // let supportArray = [
+  //   {
+  //     id: 1,
+  //     name: 'fsb2004g',
+  //     title: 'Алмаз',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_G_Small.png',
+  //     access: false
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'fsb2016g',
+  //     title: 'Сварог',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_G_Small.png',
+  //     access: false
+  //   },
+  // ]
+  // let medicArray = [
+  //   {
+  //     id: 1,
+  //     name: 'fsb2004m',
+  //     title: 'Дед',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_M_Small.png',
+  //     access: false
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'fsb2016m',
+  //     title: 'Травник',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_M_Small.png',
+  //     access: false
+  //   },
+  // ]
+  // let sniperArray = [
+  //   {
+  //     id: 1,
+  //     name: 'fsb2004s',
+  //     title: 'Стрелок',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_S_Small.png',
+  //     access: false
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'fsb2016s',
+  //     title: 'Сокол',
+  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_S_Small.png',
+  //     access: false
+  //   },
+  // ]
+  // let formulaBtnArray = [
+  //   {
+  //     name: 'Rounds',
+  //     value: 'rounds'
+  //   },
+  //   {
+  //     name: 'Kills',
+  //     value: 'kills'
+  //   },
+  //   {
+  //     name: 'Deaths',
+  //     value: 'deaths'
+  //   },
+  //   {
+  //     name: 'Assists',
+  //     value: 'assists'
+  //   },
+  //   {
+  //     name: 'Damage',
+  //     value: 'damage'
+  //   },
+  //   {
+  //     name: 'Heal',
+  //     value: 'heal'
+  //   },
+  //   {
+  //     name: 'Revives',
+  //     value: 'revives'
+  //   },
+  // ]
+  // let formulasArray = [
+  //   {
+  //     value: "(damage - deaths*50) / rounds"
+  //   },
+  //   {
+  //     value: "(damage + heal - deaths*50) / rounds"
+  //   },
+  //   {
+  //     value: "damage - deaths*200"
+  //   },
+  // ]
   let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
   let assaultArray = [
     {
@@ -124,20 +297,27 @@ function Damage() {
   ]
   let formulasArray = [
     {
-      value: "A + B = C"
+      value: "(damage - deaths*50) / rounds"
     },
     {
-      value: "A / B = C"
+      value: "(damage + heal - deaths*50) / rounds"
     },
     {
-      value: "(A + B) / C = D"
+      value: "damage - deaths*200"
     },
   ]
 
+
+
+  const inputRef = useRef();
+
+  
   const [role, setRole] = useState('Assault')
-  const [mode, setMode] = useState('Ranked')
+  const [mode, setMode] = useState('')
+  const [modeArray, setModeArray] = useState([])
   const [time, setTime] = useState('00:00')
-  const [day, setDay] = useState('Wednesday')
+  const [day, setDay] = useState('')
+  const [dayArray, setDayArray] = useState([])
   const [state, setState] = useState({
     search: '',
     role: '',
@@ -149,6 +329,19 @@ function Damage() {
   const [selectFlag, setSelectFlag] = useState(true)
   const [savePresetFlag, setSavePresetFlag] = useState(false)
   const [deletePresetFlag, setDeletePresetFlag] = useState(false)
+
+  useEffect(() => {
+    fetch("http://localhost:3000/test.json")
+      .then(data => data.json())
+      .then((data) => {
+        // modeArray = [...data.damageCard.modeArray]
+        setModeArray(data.damageCard.modeArray)
+        data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
+
+        setDayArray(data.damageCard.dayArray)
+        data.damageCard.dayArray.filter((day) => day.isEnable).map((day) => setDay(day.name))
+      })
+  }, [])
 
   useEffect(() => {
     switch (role) {
@@ -275,7 +468,7 @@ function Damage() {
               onChange={e => handleModeChange(e)}>
               <option value="" selected hidden>Choose battle mode...</option>
               {
-                modeArray.map((mode, key) => <option className="modeOption" value={mode} key={key}>{mode}</option>)
+                modeArray.map((mode, key) => <option className="modeOption" value={mode.name} key={key}>{mode.name}</option>)
               }
             </select>
           </div>
@@ -291,7 +484,7 @@ function Damage() {
                 onChange={e => handleDayChange(e)}>
                 <option value="?" selected hidden>Choose day...</option>
                 {
-                  dayArray.map((day, key) => <option className="dayOption" value={day} key={key}>{day}</option>)
+                  dayArray.map((day, key) => <option className="dayOption" value={day.name} key={key}>{day.name}</option>)
                 }
               </select>
             </div>
@@ -350,6 +543,7 @@ function Damage() {
                 placeholder="Formula..."
                 value={formula}
                 onChange={handleFormulaTextChange}
+                ref={inputRef}
               ></input>
               <div className="formulaPresetBtnContainer">
                 <button
@@ -382,6 +576,7 @@ function Damage() {
                       className="formulaBtn"
                       onClick={() => {
                         setFormula(formula.concat('', elem.value))
+                        inputRef.current.focus()
                       }}
                     >{elem.name}</button>
                   </div>)

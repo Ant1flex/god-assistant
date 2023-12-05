@@ -1,0 +1,162 @@
+
+{
+    "damageCard":{
+        "modeArray":
+        [
+            {
+                "name": "Ранговый бой",             
+                "isEnable": false 
+            },
+            {
+                "name": "Столкновение",             
+                "isEnable": false 
+            },
+            {
+                "name": "Уничтожение",             
+                "isEnable": false 
+            },
+            {
+                "name": "Фронт",             
+                "isEnable": true 
+            }
+        ],
+        "dayArray":
+        [
+            {
+                "name": "Понедельник",             
+                "isEnable": false 
+            },
+            {
+                "name": "Вторник",             
+                "isEnable": false 
+            },
+            {
+                "name": "Среда",             
+                "isEnable": true 
+            },
+            {
+                "name": "Четверг",             
+                "isEnable": false 
+            },
+            {
+                "name": "Пятница",             
+                "isEnable": false 
+            },
+            {
+                "name": "Суббота",             
+                "isEnable": false 
+            },
+            {
+                "name": "Воскресенье",             
+                "isEnable": false 
+            }
+        ],
+        "assaultArray":
+        [
+            {         
+                "id": 1,
+                "name": "Волк", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 2,
+                "name": "Перун", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_A_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 3,
+                "name": "Ворон", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_SSO2013_A_ES_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 4,
+                "name": "Плут", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_22SPN2016_A_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 5,
+                "name": "Кошмар", 
+                "avatar": "./Resource/avatars/UI_PL_POL_GROM2014_A_Small.png", 
+                "isEnable": true 
+            }
+        ],
+        "supportArray":
+        [
+            {         
+                "id": 1,
+                "name": "Алмаз", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 2,
+                "name": "Сварог", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_G_Small.png", 
+                "isEnable": false 
+            }
+        ],
+        "medicArray":
+        [
+            {         
+                "id": 1,
+                "name": "Дед", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 2,
+                "name": "Травник", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_M_Small.png", 
+                "isEnable": false 
+            }
+        ],
+        "sniperArray":
+        [
+            {         
+                "id": 1,
+                "name": "Стрелок", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 2,
+                "name": "Сокол", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_S_Small.png", 
+                "isEnable": false 
+            }
+        ],
+        "formulaBtnArray":
+        [            
+            {
+                "label": "Урон",
+                "value": "damage"
+            },
+            {
+                "label": "Лечение",
+                "value": "heal"
+            }                
+        ],
+        "formulasArray": 
+        [
+            {
+                "value": "(damage - deaths*50) / rounds"
+            },
+            {
+                "value": "(damage + heal - deaths*50) / rounds"
+            },
+            {
+                "value": "damage - deaths*200"
+            }
+        ],   
+        
+        "currentTime": "00:00",
+        "currentFormula": "kills*10 - deaths*100"
+    }
+}
+
+
+

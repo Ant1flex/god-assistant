@@ -63,7 +63,6 @@
 
 .hidden{
     visibility: hidden;
-    position: absolute;
 }
 
 .header{
@@ -287,6 +286,7 @@
         background-origin: content-box;
         &BtnContainer{
             display: flex;
+            position: relative;
             width: 27.5px;
             height: 27.5px;
             margin: 5px 0 0 5px;
@@ -301,6 +301,7 @@
             // height: 27.5px;
             // margin: 5px 0 0 5px;
             &Save{
+                position: absolute;
                 &Img{
                     cursor: pointer;
                     width: 100%;
@@ -312,6 +313,7 @@
                 
             }
             &Delete{
+                position: absolute;
                 &Img{
                     cursor: pointer;
                     width: 100%;
