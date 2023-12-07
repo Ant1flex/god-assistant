@@ -20,37 +20,6 @@
                 "isEnable": true 
             }
         ],
-        "dayArray":
-        [
-            {
-                "name": "Понедельник",             
-                "isEnable": false 
-            },
-            {
-                "name": "Вторник",             
-                "isEnable": false 
-            },
-            {
-                "name": "Среда",             
-                "isEnable": true 
-            },
-            {
-                "name": "Четверг",             
-                "isEnable": false 
-            },
-            {
-                "name": "Пятница",             
-                "isEnable": false 
-            },
-            {
-                "name": "Суббота",             
-                "isEnable": false 
-            },
-            {
-                "name": "Воскресенье",             
-                "isEnable": false 
-            }
-        ],
         "assaultArray":
         [
             {         
@@ -154,6 +123,7 @@
         ],   
         
         "currentTime": "00:00",
+        "currentDay": "Среда",
         "currentFormula": "kills*10 - deaths*100"
     }
 }

@@ -180,151 +180,31 @@ function Damage() {
   //   },
   // ]
   let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
-  let assaultArray = [
-    {
-      id: 1,
-      name: 'fsb2004a',
-      title: 'Волк',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2004_A_Small.png',
-      access: false
-    },
-    {
-      id: 2,
-      name: 'fsb2016a',
-      title: 'Перун',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2016_A_Small.png',
-      access: true
-    },
-    {
-      id: 3,
-      name: 'sso2013a',
-      title: 'Ворон',
-      avatar: './Resource/avatars/UI_PL_RUS_SSO2013_A_ES_Small.png',
-      access: false
-    },
-    {
-      id: 4,
-      name: '22spn2016a',
-      title: 'Плут',
-      avatar: './Resource/avatars/UI_PL_RUS_22SPN2016_A_Small.png',
-      access: true
-    },
-    {
-      id: 5,
-      name: 'grom2014a',
-      title: 'Кошмар',
-      avatar: './Resource/avatars/UI_PL_POL_GROM2014_A_Small.png',
-      access: true
-    },
-  ]
-  let supportArray = [
-    {
-      id: 1,
-      name: 'fsb2004g',
-      title: 'Алмаз',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2004_G_Small.png',
-      access: false
-    },
-    {
-      id: 2,
-      name: 'fsb2016g',
-      title: 'Сварог',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2016_G_Small.png',
-      access: false
-    },
-  ]
-  let medicArray = [
-    {
-      id: 1,
-      name: 'fsb2004m',
-      title: 'Дед',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2004_M_Small.png',
-      access: false
-    },
-    {
-      id: 2,
-      name: 'fsb2016m',
-      title: 'Травник',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2016_M_Small.png',
-      access: false
-    },
-  ]
-  let sniperArray = [
-    {
-      id: 1,
-      name: 'fsb2004s',
-      title: 'Стрелок',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2004_S_Small.png',
-      access: false
-    },
-    {
-      id: 2,
-      name: 'fsb2016s',
-      title: 'Сокол',
-      avatar: './Resource/avatars/UI_PL_RUS_FSB2016_S_Small.png',
-      access: false
-    },
-  ]
-  let formulaBtnArray = [
-    {
-      name: 'Rounds',
-      value: 'rounds'
-    },
-    {
-      name: 'Kills',
-      value: 'kills'
-    },
-    {
-      name: 'Deaths',
-      value: 'deaths'
-    },
-    {
-      name: 'Assists',
-      value: 'assists'
-    },
-    {
-      name: 'Damage',
-      value: 'damage'
-    },
-    {
-      name: 'Heal',
-      value: 'heal'
-    },
-    {
-      name: 'Revives',
-      value: 'revives'
-    },
-  ]
-  let formulasArray = [
-    {
-      value: "(damage - deaths*50) / rounds"
-    },
-    {
-      value: "(damage + heal - deaths*50) / rounds"
-    },
-    {
-      value: "damage - deaths*200"
-    },
-  ]
-
-
+  let dayArray = [ 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
   const inputRef = useRef();
-
   
   const [role, setRole] = useState('Assault')
+
   const [mode, setMode] = useState('')
   const [modeArray, setModeArray] = useState([])
+
   const [time, setTime] = useState('00:00')
   const [day, setDay] = useState('')
-  const [dayArray, setDayArray] = useState([])
+
+  const [assaultArray, setAssaultArray] = useState([])
+  const [supportArray, setSupportArray] = useState([])
+  const [medicArray, setMedicArray] = useState([])
+  const [sniperArray, setSniperArray] = useState([])
   const [state, setState] = useState({
     search: '',
     role: '',
     operators: [],
   })
+
   const [formula, setFormula] = useState('')
-  const [formulasList, setFormulasList] = useState(formulasArray)
+  const [formulaBtnArray, setFormulaBtnArray] = useState([])
+  const [formulasList, setFormulasList] = useState([])
 
   const [selectFlag, setSelectFlag] = useState(true)
   const [savePresetFlag, setSavePresetFlag] = useState(false)
@@ -334,27 +214,43 @@ function Damage() {
     fetch("http://localhost:3000/test.json")
       .then(data => data.json())
       .then((data) => {
-        // modeArray = [...data.damageCard.modeArray]
         setModeArray(data.damageCard.modeArray)
         data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
 
-        setDayArray(data.damageCard.dayArray)
-        data.damageCard.dayArray.filter((day) => day.isEnable).map((day) => setDay(day.name))
+        setDay(data.damageCard.currentDay)
+
+        setAssaultArray(data.damageCard.assaultArray)
+        setSupportArray(data.damageCard.supportArray)
+        setMedicArray(data.damageCard.medicArray)
+        setSniperArray(data.damageCard.sniperArray)
+        setState({ ...state, operators: data.damageCard.assaultArray })
+
+        setFormulaBtnArray(data.damageCard.formulaBtnArray)
+        setFormulasList(data.damageCard.formulasArray)
       })
   }, [])
 
+  // ====== FOR VERCEL LOCAL DEMO ======
   useEffect(() => {
     fetch("https://god-assistant.vercel.app/test.json")
       .then(data => data.json())
       .then((data) => {
-        // modeArray = [...data.damageCard.modeArray]
         setModeArray(data.damageCard.modeArray)
         data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
 
-        setDayArray(data.damageCard.dayArray)
-        data.damageCard.dayArray.filter((day) => day.isEnable).map((day) => setDay(day.name))
+        setDay(data.damageCard.currentDay)
+
+        setAssaultArray(data.damageCard.assaultArray)
+        setSupportArray(data.damageCard.supportArray)
+        setMedicArray(data.damageCard.medicArray)
+        setSniperArray(data.damageCard.sniperArray)
+        setState({ ...state, operators: data.damageCard.assaultArray })
+
+        setFormulaBtnArray(data.damageCard.formulaBtnArray)
+        setFormulasList(data.damageCard.formulasArray)
       })
   }, [])
+  // ====== FOR VERCEL LOCAL DEMO ======
 
   useEffect(() => {
     switch (role) {
@@ -390,6 +286,13 @@ function Damage() {
   }, [formula, formulasList])
 
   function handleModeChange(e) {
+    modeArray.forEach(mode => {
+      if(mode.name === e.target.value){
+        mode.isEnable = true
+      } else {
+        mode.isEnable = false
+      }
+    })
     setMode(e.target.value)
   }
   function handleTimeChange(e) {
@@ -415,7 +318,7 @@ function Damage() {
   function handleAccessAll() {
     let operators = state.operators
     operators.forEach((operator, i, arr) => {
-      operator.access = true
+      operator.isEnable = true
     })
     setState({ ...state, operators: operators })
     setSelectFlag(false)
@@ -423,7 +326,7 @@ function Damage() {
   function handleAccessNone() {
     let operators = state.operators
     operators.forEach((operator, i, arr) => {
-      operator.access = false
+      operator.isEnable = false
     })
     setState({ ...state, operators: operators })
     setSelectFlag(true)
@@ -450,7 +353,7 @@ function Damage() {
   }
 
   const filteredOperators = state.operators.filter(operator => {
-    return operator.title.toLowerCase().includes(state.search.toLowerCase())
+    return operator.name.toLowerCase().includes(state.search.toLowerCase())
   })
 
   return (
@@ -497,7 +400,7 @@ function Damage() {
                 onChange={e => handleDayChange(e)}>
                 <option value="?" selected hidden>Choose day...</option>
                 {
-                  dayArray.map((day, key) => <option className="dayOption" value={day.name} key={key}>{day.name}</option>)
+                  dayArray.map((day, key) => <option className="dayOption" value={day} key={key}>{day}</option>)
                 }
               </select>
             </div>
@@ -532,14 +435,14 @@ function Damage() {
                     className="operatorsElem"
                     onClick={() => {
                       const operators = state.operators
-                      operator.access = !operator.access
-                      if (!operator.access) {
+                      operator.isEnable = !operator.isEnable
+                      if (!operator.isEnable) {
                         setSelectFlag(true)
                       }
                       setState({ ...state, operators: operators })
                     }}>
-                    <img className="operatorsImg" title={operator.title} src={operator.avatar} />
-                    <img className={`operatorsAccess ${!operator.access ? 'hidden' : ''}`} src={'./Resource/access.png'} />
+                    <img className="operatorsImg" title={operator.name} src={operator.avatar} />
+                    <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} />
                   </div>)
               }
             </div>
@@ -591,7 +494,7 @@ function Damage() {
                         setFormula(formula.concat('', elem.value))
                         inputRef.current.focus()
                       }}
-                    >{elem.name}</button>
+                    >{elem.label}</button>
                   </div>)
               }
             </div>
