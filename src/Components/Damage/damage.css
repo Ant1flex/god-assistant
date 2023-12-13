@@ -316,5 +316,9 @@
   height: 100%; }
   .btn:hover {
     background-color: rgba(109, 114, 125, 0.5); }
+  .btn:disabled {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #868686;
+    cursor: default; }
 
 /*# sourceMappingURL=damage.css.map */

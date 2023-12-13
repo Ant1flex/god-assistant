@@ -124,7 +124,16 @@
         
         "currentTime": "00:00",
         "currentDay": "Среда",
-        "currentFormula": "kills*10 - deaths*100"
+
+        "assaultFormula": "kills*10 - deaths*100",
+        "supportFormula": "supports*10 - deaths*100",
+        "medicFormula": "heal - deaths*100",
+        "sniperFormula": "damage - deaths*100",
+
+        "assaultIsPaused": false,
+        "supportIsPaused": false,
+        "medicIsPaused": false,
+        "sniperIsPaused": false
     }
 }
 

@@ -4,181 +4,6 @@ import React, { useEffect, useState, useRef } from "react"
 import "./damage.css"
 
 function Damage() {
-  // let modeArray = [
-  //   {
-  //     name: 'Ranked',
-  //     isEnable: true
-  //   },
-  //   {
-  //     name: 'Showdown',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Annihilation',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Onslaught',
-  //     isEnable: false
-  //   },
-  // ]
-  // let dayArray = [
-  //   {
-  //     name: 'Monday',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Tuesday',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Wednesday',
-  //     isEnable: true
-  //   },
-  //   {
-  //     name: 'Thursday',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Friday',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Saturday',
-  //     isEnable: false
-  //   },
-  //   {
-  //     name: 'Sunday',
-  //     isEnable: false
-  //   },
-  // ]
-  // let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
-  // let assaultArray = [
-  //   {
-  //     id: 1,
-  //     name: 'fsb2004a',
-  //     title: 'Волк',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_A_Small.png',
-  //     access: false
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'fsb2016a',
-  //     title: 'Перун',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_A_Small.png',
-  //     access: true
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'sso2013a',
-  //     title: 'Ворон',
-  //     avatar: './Resource/avatars/UI_PL_RUS_SSO2013_A_ES_Small.png',
-  //     access: false
-  //   },
-  //   {
-  //     id: 4,
-  //     name: '22spn2016a',
-  //     title: 'Плут',
-  //     avatar: './Resource/avatars/UI_PL_RUS_22SPN2016_A_Small.png',
-  //     access: true
-  //   },
-  //   {
-  //     id: 5,
-  //     name: 'grom2014a',
-  //     title: 'Кошмар',
-  //     avatar: './Resource/avatars/UI_PL_POL_GROM2014_A_Small.png',
-  //     access: true
-  //   },
-  // ]
-  // let supportArray = [
-  //   {
-  //     id: 1,
-  //     name: 'fsb2004g',
-  //     title: 'Алмаз',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_G_Small.png',
-  //     access: false
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'fsb2016g',
-  //     title: 'Сварог',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_G_Small.png',
-  //     access: false
-  //   },
-  // ]
-  // let medicArray = [
-  //   {
-  //     id: 1,
-  //     name: 'fsb2004m',
-  //     title: 'Дед',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_M_Small.png',
-  //     access: false
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'fsb2016m',
-  //     title: 'Травник',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_M_Small.png',
-  //     access: false
-  //   },
-  // ]
-  // let sniperArray = [
-  //   {
-  //     id: 1,
-  //     name: 'fsb2004s',
-  //     title: 'Стрелок',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2004_S_Small.png',
-  //     access: false
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'fsb2016s',
-  //     title: 'Сокол',
-  //     avatar: './Resource/avatars/UI_PL_RUS_FSB2016_S_Small.png',
-  //     access: false
-  //   },
-  // ]
-  // let formulaBtnArray = [
-  //   {
-  //     name: 'Rounds',
-  //     value: 'rounds'
-  //   },
-  //   {
-  //     name: 'Kills',
-  //     value: 'kills'
-  //   },
-  //   {
-  //     name: 'Deaths',
-  //     value: 'deaths'
-  //   },
-  //   {
-  //     name: 'Assists',
-  //     value: 'assists'
-  //   },
-  //   {
-  //     name: 'Damage',
-  //     value: 'damage'
-  //   },
-  //   {
-  //     name: 'Heal',
-  //     value: 'heal'
-  //   },
-  //   {
-  //     name: 'Revives',
-  //     value: 'revives'
-  //   },
-  // ]
-  // let formulasArray = [
-  //   {
-  //     value: "(damage - deaths*50) / rounds"
-  //   },
-  //   {
-  //     value: "(damage + heal - deaths*50) / rounds"
-  //   },
-  //   {
-  //     value: "damage - deaths*200"
-  //   },
-  // ]
   let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
   let dayArray = [ 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
@@ -203,12 +28,17 @@ function Damage() {
   })
 
   const [formula, setFormula] = useState('')
+  const [formulaAssault, setFormulaAssault] = useState('')
+  const [formulaSupport, setFormulaSupport] = useState('')
+  const [formulaMedic, setFormulaMedic] = useState('')
+  const [formulaSniper, setFormulaSniper] = useState('')
   const [formulaBtnArray, setFormulaBtnArray] = useState([])
   const [formulasList, setFormulasList] = useState([])
 
   const [selectFlag, setSelectFlag] = useState(true)
   const [savePresetFlag, setSavePresetFlag] = useState(false)
   const [deletePresetFlag, setDeletePresetFlag] = useState(false)
+  const [disableBtn, setDisableBtn] = useState(false)
 
   useEffect(() => {
     fetch("http://localhost:3000/test.json")
@@ -225,6 +55,11 @@ function Damage() {
         setSniperArray(data.damageCard.sniperArray)
         setState({ ...state, operators: data.damageCard.assaultArray })
 
+        setFormula(data.damageCard.assaultFormula)
+        setFormulaAssault(data.damageCard.assaultFormula)
+        setFormulaSupport(data.damageCard.supportFormula)
+        setFormulaMedic(data.damageCard.medicFormula)
+        setFormulaSniper(data.damageCard.sniperFormula)
         setFormulaBtnArray(data.damageCard.formulaBtnArray)
         setFormulasList(data.damageCard.formulasArray)
       })
@@ -246,6 +81,11 @@ function Damage() {
         setSniperArray(data.damageCard.sniperArray)
         setState({ ...state, operators: data.damageCard.assaultArray })
 
+        setFormula(data.damageCard.assaultFormula)
+        setFormulaAssault(data.damageCard.assaultFormula)
+        setFormulaSupport(data.damageCard.supportFormula)
+        setFormulaMedic(data.damageCard.medicFormula)
+        setFormulaSniper(data.damageCard.sniperFormula)
         setFormulaBtnArray(data.damageCard.formulaBtnArray)
         setFormulasList(data.damageCard.formulasArray)
       })
@@ -256,18 +96,23 @@ function Damage() {
     switch (role) {
       case 'Assault':
         setState({ ...state, operators: assaultArray })
+        setFormula(formulaAssault)
         break
       case 'Support':
         setState({ ...state, operators: supportArray })
+        setFormula(formulaSupport)
         break
       case 'Medic':
         setState({ ...state, operators: medicArray })
+        setFormula(formulaMedic)
         break
       case 'Sniper':
         setState({ ...state, operators: sniperArray })
+        setFormula(formulaSniper)
         break
       default:
         setState({ ...state, operators: assaultArray })
+        setFormula(formulaAssault)
     }
   }, [role])
 
@@ -305,7 +150,6 @@ function Damage() {
     setState({ ...state, search: e.target.value })
   }
   function handleRoleChange(e) {
-    //setState({ ...state, role: e.target.value })
     setRole(e.target.value)
   }
   function handleFormulaTextChange(e) {
@@ -314,7 +158,6 @@ function Damage() {
   function handleFormulaPresetChange(e) {
     setFormula(e.target.value)
   }
-
   function handleAccessAll() {
     let operators = state.operators
     operators.forEach((operator, i, arr) => {
@@ -350,6 +193,53 @@ function Damage() {
   function handleDelete() {
     let newFormulasArray = formulasList.filter(elem => elem.value.toLowerCase() !== formula.toLowerCase())
     setFormulasList(newFormulasArray)
+  }
+  function handleSendData() {
+    setDisableBtn(false)
+    let data = {
+      role: role,
+      mode: mode,
+      time: time,
+      day: day,
+      operators: state.operators.filter(oper => oper.isEnable),
+      formula: formula,
+      formulasList: formulasList,
+    }
+    let json = JSON.stringify(data)
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: json,
+    }
+    fetch("http://localhost:3000/send.json", {
+      options,
+    }).then(response => {
+      console.log(response)
+    })
+    console.log(data)
+  }
+  function handlePauseEvent() {
+    setDisableBtn(true)
+    let data = {
+      role: role,
+      isPaused: true,
+    }
+    let json = JSON.stringify(data)
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: json,
+    }
+    fetch("http://localhost:3000/send.json", {
+      options,
+    }).then(response => {
+      console.log(response)
+    })
+    console.log(data)
   }
 
   const filteredOperators = state.operators.filter(operator => {
@@ -503,13 +393,13 @@ function Damage() {
       </div>
       <div className="btnContainer">
         <div className="btnWrapper">
-          <button className="btn pauseBtn">Pause event</button>
+          <button className="btn pauseBtn" onClick={handlePauseEvent} disabled={disableBtn}>{!disableBtn ? "Pause event" : "Event on pause"}</button>
         </div>
         <div className="btnWrapper">
           <button className="btn currentBtn">Current rules</button>
         </div>
         <div className="btnWrapper">
-          <button className="btn updateBtn">Update rules</button>
+          <button className="btn updateBtn" onClick={handleSendData}>Update rules</button>
         </div>
       </div>
     </div>
