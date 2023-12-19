@@ -28,12 +28,21 @@ function Damage() {
   })
 
   const [formula, setFormula] = useState('')
-  const [formulaAssault, setFormulaAssault] = useState('')
-  const [formulaSupport, setFormulaSupport] = useState('')
-  const [formulaMedic, setFormulaMedic] = useState('')
-  const [formulaSniper, setFormulaSniper] = useState('')
+  const [currentFormulas, setCurrentFormulas] = useState({
+    assault: '',
+    support: '',
+    medic: '',
+    sniper: '',
+  })
   const [formulaBtnArray, setFormulaBtnArray] = useState([])
   const [formulasList, setFormulasList] = useState([])
+
+  const [activityIsPaused, setActivityIsPaused] = useState({
+    assault: '',
+    support: '',
+    medic: '',
+    sniper: '',
+  })
 
   const [selectFlag, setSelectFlag] = useState(true)
   const [savePresetFlag, setSavePresetFlag] = useState(false)
@@ -55,13 +64,23 @@ function Damage() {
         setSniperArray(data.damageCard.sniperArray)
         setState({ ...state, operators: data.damageCard.assaultArray })
 
-        setFormula(data.damageCard.assaultFormula)
-        setFormulaAssault(data.damageCard.assaultFormula)
-        setFormulaSupport(data.damageCard.supportFormula)
-        setFormulaMedic(data.damageCard.medicFormula)
-        setFormulaSniper(data.damageCard.sniperFormula)
+        setFormula(data.damageCard.currentFormulas.assault)
+        setCurrentFormulas({
+          assault: data.damageCard.currentFormulas.assault,
+          support: data.damageCard.currentFormulas.support,
+          medic: data.damageCard.currentFormulas.medic,
+          sniper: data.damageCard.currentFormulas.sniper,
+        })
         setFormulaBtnArray(data.damageCard.formulaBtnArray)
         setFormulasList(data.damageCard.formulasArray)
+
+        setActivityIsPaused({
+          assault: data.damageCard.activityIsPaused.assault,
+          support: data.damageCard.activityIsPaused.support,
+          medic: data.damageCard.activityIsPaused.medic,
+          sniper: data.damageCard.activityIsPaused.sniper,
+        })
+        setDisableBtn(data.damageCard.activityIsPaused.assault)
       })
   }, [])
 
@@ -81,13 +100,23 @@ function Damage() {
         setSniperArray(data.damageCard.sniperArray)
         setState({ ...state, operators: data.damageCard.assaultArray })
 
-        setFormula(data.damageCard.assaultFormula)
-        setFormulaAssault(data.damageCard.assaultFormula)
-        setFormulaSupport(data.damageCard.supportFormula)
-        setFormulaMedic(data.damageCard.medicFormula)
-        setFormulaSniper(data.damageCard.sniperFormula)
+        setFormula(data.damageCard.currentFormulas.assault)
+        setCurrentFormulas({
+          assault: data.damageCard.currentFormulas.assault,
+          support: data.damageCard.currentFormulas.support,
+          medic: data.damageCard.currentFormulas.medic,
+          sniper: data.damageCard.currentFormulas.sniper,
+        })
         setFormulaBtnArray(data.damageCard.formulaBtnArray)
         setFormulasList(data.damageCard.formulasArray)
+
+        setActivityIsPaused({
+          assault: data.damageCard.activityIsPaused.assault,
+          support: data.damageCard.activityIsPaused.support,
+          medic: data.damageCard.activityIsPaused.medic,
+          sniper: data.damageCard.activityIsPaused.sniper,
+        })
+        setDisableBtn(data.damageCard.activityIsPaused.assault)
       })
   }, [])
   // ====== FOR VERCEL LOCAL DEMO ======
@@ -96,23 +125,28 @@ function Damage() {
     switch (role) {
       case 'Assault':
         setState({ ...state, operators: assaultArray })
-        setFormula(formulaAssault)
+        setFormula(currentFormulas.assault)
+        setDisableBtn(activityIsPaused.assault)
         break
       case 'Support':
         setState({ ...state, operators: supportArray })
-        setFormula(formulaSupport)
+        setFormula(currentFormulas.support)
+        setDisableBtn(activityIsPaused.support)
         break
       case 'Medic':
         setState({ ...state, operators: medicArray })
-        setFormula(formulaMedic)
+        setFormula(currentFormulas.medic)
+        setDisableBtn(activityIsPaused.medic)
         break
       case 'Sniper':
         setState({ ...state, operators: sniperArray })
-        setFormula(formulaSniper)
+        setFormula(currentFormulas.sniper)
+        setDisableBtn(activityIsPaused.sniper)
         break
       default:
         setState({ ...state, operators: assaultArray })
-        setFormula(formulaAssault)
+        setFormula(currentFormulas.assault)
+        setDisableBtn(activityIsPaused.assault)
     }
   }, [role])
 
@@ -195,7 +229,24 @@ function Damage() {
     setFormulasList(newFormulasArray)
   }
   function handleSendData() {
-    setDisableBtn(false)
+    switch (role) {
+      case 'Assault':
+        setActivityIsPaused({...activityIsPaused, assault: false})
+        setDisableBtn(false)
+        break
+      case 'Support':
+        setActivityIsPaused({...activityIsPaused, support: false})
+        setDisableBtn(false)
+        break
+      case 'Medic':
+        setActivityIsPaused({...activityIsPaused, medic: false})
+        setDisableBtn(false)
+        break
+      case 'Sniper':
+        setActivityIsPaused({...activityIsPaused, sniper: false})
+        setDisableBtn(false)
+        break
+    }
     let data = {
       role: role,
       mode: mode,
@@ -204,6 +255,7 @@ function Damage() {
       operators: state.operators.filter(oper => oper.isEnable),
       formula: formula,
       formulasList: formulasList,
+      isPaused: false,
     }
     let json = JSON.stringify(data)
     let options = {
@@ -221,7 +273,24 @@ function Damage() {
     console.log(data)
   }
   function handlePauseEvent() {
-    setDisableBtn(true)
+    switch (role) {
+      case 'Assault':
+        setActivityIsPaused({...activityIsPaused, assault: true})
+        setDisableBtn(true)
+        break
+      case 'Support':
+        setActivityIsPaused({...activityIsPaused, support: true})
+        setDisableBtn(true)
+        break
+      case 'Medic':
+        setActivityIsPaused({...activityIsPaused, medic: true})
+        setDisableBtn(true)
+        break
+      case 'Sniper':
+        setActivityIsPaused({...activityIsPaused, sniper: true})
+        setDisableBtn(true)
+        break
+    }
     let data = {
       role: role,
       isPaused: true,
@@ -399,7 +468,7 @@ function Damage() {
           <button className="btn currentBtn">Current rules</button>
         </div>
         <div className="btnWrapper">
-          <button className="btn updateBtn" onClick={handleSendData}>Update rules</button>
+          <button className="btn updateBtn" onClick={handleSendData}>{!disableBtn ? "Update rules" : "Resume event"}</button>
         </div>
       </div>
     </div>

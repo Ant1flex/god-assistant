@@ -120,20 +120,25 @@
             {
                 "value": "damage - deaths*200"
             }
-        ],   
+        ],
+        "currentFormulas": 
+        {
+            "assault": "kills*10 - deaths*100",
+            "support": "supports*10 - deaths*100",
+            "medic": "heal - deaths*100",
+            "sniper": "damage - deaths*100"
+        },
         
         "currentTime": "00:00",
         "currentDay": "Среда",
 
-        "assaultFormula": "kills*10 - deaths*100",
-        "supportFormula": "supports*10 - deaths*100",
-        "medicFormula": "heal - deaths*100",
-        "sniperFormula": "damage - deaths*100",
-
-        "assaultIsPaused": false,
-        "supportIsPaused": false,
-        "medicIsPaused": false,
-        "sniperIsPaused": false
+        "activityIsPaused":
+        {
+            "assault": true,
+            "support": false,
+            "medic": false,
+            "sniper": true
+        }
     }
 }
 
