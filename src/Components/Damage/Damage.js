@@ -5,10 +5,10 @@ import "./damage.css"
 
 function Damage() {
   let roleArray = ['Assault', 'Support', 'Medic', 'Sniper']
-  let dayArray = [ 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
+  let dayArray = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
   const inputRef = useRef();
-  
+
   const [role, setRole] = useState('Assault')
 
   const [mode, setMode] = useState('')
@@ -152,10 +152,10 @@ function Damage() {
 
   useEffect(() => {
     let tempArr = formulasList.map(elem => elem.value)
-    if(!formula){
+    if (!formula) {
       setSavePresetFlag(false)
       setDeletePresetFlag(false)
-    } else if(formula && tempArr.every(elem => elem.toLowerCase().replaceAll(' ', '') !== formula.toLowerCase().replaceAll(' ', ''))){
+    } else if (formula && tempArr.every(elem => elem.toLowerCase().replaceAll(' ', '') !== formula.toLowerCase().replaceAll(' ', ''))) {
       setSavePresetFlag(true)
       setDeletePresetFlag(false)
     } else {
@@ -164,9 +164,13 @@ function Damage() {
     }
   }, [formula, formulasList])
 
+
+  function handleRoleChange(e) {
+    setRole(e.target.value)
+  }
   function handleModeChange(e) {
     modeArray.forEach(mode => {
-      if(mode.name === e.target.value){
+      if (mode.name === e.target.value) {
         mode.isEnable = true
       } else {
         mode.isEnable = false
@@ -183,8 +187,30 @@ function Damage() {
   function handleSearchChange(e) {
     setState({ ...state, search: e.target.value })
   }
-  function handleRoleChange(e) {
-    setRole(e.target.value)
+  function handleScrollLeft() {
+    let carousel = document.getElementById("carousel")
+    let repeats = carousel.offsetWidth / 2
+    let timerId = setInterval(() => {carousel.scrollLeft -= repeats/10;}, 20);
+    setTimeout(() => {clearInterval(timerId)}, 200);
+  }
+  function handleScrollRight() {
+    let carousel = document.getElementById("carousel")
+    let repeats = carousel.offsetWidth / 2
+    let timerId = setInterval(() => {carousel.scrollLeft += repeats/10;}, 20);
+    setTimeout(() => {clearInterval(timerId)}, 220);
+  }
+  function handleWheelCarousel(e) {
+    let carousel = document.getElementById("carousel")
+    if (e.deltaY < 0) {
+      let repeats = carousel.offsetWidth / 5
+      let timerId = setInterval(() => {carousel.scrollLeft -= repeats/10;}, 20);
+      setTimeout(() => {clearInterval(timerId)}, 200);
+    }
+    else if (e.deltaY > 0) {
+      let repeats = carousel.offsetWidth / 5
+      let timerId = setInterval(() => {carousel.scrollLeft += repeats/10;}, 20);
+      setTimeout(() => {clearInterval(timerId)}, 200);
+    }
   }
   function handleFormulaTextChange(e) {
     setFormula(e.target.value)
@@ -231,19 +257,19 @@ function Damage() {
   function handleSendData() {
     switch (role) {
       case 'Assault':
-        setActivityIsPaused({...activityIsPaused, assault: false})
+        setActivityIsPaused({ ...activityIsPaused, assault: false })
         setDisableBtn(false)
         break
       case 'Support':
-        setActivityIsPaused({...activityIsPaused, support: false})
+        setActivityIsPaused({ ...activityIsPaused, support: false })
         setDisableBtn(false)
         break
       case 'Medic':
-        setActivityIsPaused({...activityIsPaused, medic: false})
+        setActivityIsPaused({ ...activityIsPaused, medic: false })
         setDisableBtn(false)
         break
       case 'Sniper':
-        setActivityIsPaused({...activityIsPaused, sniper: false})
+        setActivityIsPaused({ ...activityIsPaused, sniper: false })
         setDisableBtn(false)
         break
     }
@@ -275,19 +301,19 @@ function Damage() {
   function handlePauseEvent() {
     switch (role) {
       case 'Assault':
-        setActivityIsPaused({...activityIsPaused, assault: true})
+        setActivityIsPaused({ ...activityIsPaused, assault: true })
         setDisableBtn(true)
         break
       case 'Support':
-        setActivityIsPaused({...activityIsPaused, support: true})
+        setActivityIsPaused({ ...activityIsPaused, support: true })
         setDisableBtn(true)
         break
       case 'Medic':
-        setActivityIsPaused({...activityIsPaused, medic: true})
+        setActivityIsPaused({ ...activityIsPaused, medic: true })
         setDisableBtn(true)
         break
       case 'Sniper':
-        setActivityIsPaused({...activityIsPaused, sniper: true})
+        setActivityIsPaused({ ...activityIsPaused, sniper: true })
         setDisableBtn(true)
         break
     }
@@ -388,22 +414,34 @@ function Damage() {
                   </div>
                 </div>
               }
-              {
-                filteredOperators.map((operator, key) =>
-                  <div
-                    className="operatorsElem"
-                    onClick={() => {
-                      const operators = state.operators
-                      operator.isEnable = !operator.isEnable
-                      if (!operator.isEnable) {
-                        setSelectFlag(true)
-                      }
-                      setState({ ...state, operators: operators })
-                    }}>
-                    <img className="operatorsImg" title={operator.name} src={operator.avatar} />
-                    <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} />
-                  </div>)
-              }
+              <button
+                className="operatorsCarouselBtn operatorsCarouselBtnLeft"
+                onClick={handleScrollLeft}>
+                <img className="operatorsCarouselBtnImg" title="Scroll left" src={'./Resource/arrow-left.png'} />
+              </button>
+              <div id="carousel" className="operatorsCarousel smooth-scroll" onWheel={handleWheelCarousel}>
+                {
+                  filteredOperators.map((operator, key) =>
+                    <div
+                      className="operatorsElem"
+                      onClick={() => {
+                        const operators = state.operators
+                        operator.isEnable = !operator.isEnable
+                        if (!operator.isEnable) {
+                          setSelectFlag(true)
+                        }
+                        setState({ ...state, operators: operators })
+                      }}>
+                      <img className="operatorsImg" title={operator.name} src={operator.avatar} />
+                      <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} />
+                    </div>)
+                }
+              </div>
+              <button
+                className="operatorsCarouselBtn operatorsCarouselBtnRight"
+                onClick={handleScrollRight}>
+                <img className="operatorsCarouselBtnImg" title="Scroll Right" src={'./Resource/arrow-right.png'} />
+              </button>
             </div>
           </div>
         </div>
@@ -463,9 +501,6 @@ function Damage() {
       <div className="btnContainer">
         <div className="btnWrapper">
           <button className="btn pauseBtn" onClick={handlePauseEvent} disabled={disableBtn}>{!disableBtn ? "Pause event" : "Event on pause"}</button>
-        </div>
-        <div className="btnWrapper">
-          <button className="btn currentBtn">Current rules</button>
         </div>
         <div className="btnWrapper">
           <button className="btn updateBtn" onClick={handleSendData}>{!disableBtn ? "Update rules" : "Resume event"}</button>

@@ -178,7 +178,40 @@
         background-color: transparent;
         outline: none;
         margin: 5px 20px 10px 20px;
-        height: 60px;
+    }
+    &Carousel{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        // scroll-behavior: smooth; 
+        &::-webkit-scrollbar {
+            width: 0px;
+            height: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $contentAccentColor;
+            border-radius: 5px;
+        }
+        &Btn{
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            color: $contentAccentColor;
+            &Img{
+                margin-bottom: 5px;
+                cursor: pointer;
+                width: 25px;
+                height: 40px;
+            }
+            &Left{
+            }
+            &Right{
+            }
+        }
     }
     &Elem{
         display: flex;
@@ -188,10 +221,11 @@
         border: 2px solid;
         border-color: $contentAccentColor;
         border-radius: 10px;
-        height: 60px;
-        width: 60px;
+        min-height: 60px;
+        min-width: 60px;
         overflow: hidden;
         margin-right: 15px;
+        margin-bottom: 2.5px;
         // margin: auto;
         cursor: pointer;
         &:hover{
@@ -220,6 +254,9 @@
             background-color: transparent;
             color: $contentMainTxtColor;
         }
+        height: 60px;
+        width: 60px;
+        margin-right: 0;
     }
     &AllNone{
         display: flex;

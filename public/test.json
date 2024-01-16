@@ -51,6 +51,85 @@
                 "name": "Кошмар", 
                 "avatar": "./Resource/avatars/UI_PL_POL_GROM2014_A_Small.png", 
                 "isEnable": true 
+            },
+            {         
+                "id": 6,
+                "name": "Рейн", 
+                "avatar": "./Resource/avatars/UI_PL_DEU_KSK2011_A_Small.png", 
+                "isEnable": true 
+            },
+
+            {         
+                "id": 7,
+                "name": "Корсар", 
+                "avatar": "./Resource/avatars/UI_PL_USA_SEAL2014_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 8,
+                "name": "Слай", 
+                "avatar": "./Resource/avatars/UI_PL_USA_CST_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 9,
+                "name": "Стерлинг", 
+                "avatar": "./Resource/avatars/UI_PL_GBR_TFB2008_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 10,
+                "name": "Люмен", 
+                "avatar": "./Resource/avatars/UI_EMPTY_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 11,
+                "name": "Авангард", 
+                "avatar": "./Resource/avatars/UI_PL_FRA_RAID2017_A_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 12,
+                "name": "Афела", 
+                "avatar": "./Resource/avatars/UI_PL_ISR_NESHER2015_A_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 13,
+                "name": "Фаро", 
+                "avatar": "./Resource/avatars/UI_PL_ESP_EZAPAC_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 14,
+                "name": "Мустанг", 
+                "avatar": "./Resource/avatars/UI_PL_KAZ_ARYSTAN_A_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 15,
+                "name": "Лазутчик", 
+                "avatar": "./Resource/avatars/UI_PL_BLR_SSO_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 16,
+                "name": "Старкад", 
+                "avatar": "./Resource/avatars/UI_PL_SWE_AMF_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 17,
+                "name": "Шаовэй", 
+                "avatar": "./Resource/avatars/UI_PL_CHN_JIAOLONG_A_Small.png", 
+                "isEnable": true 
+            },
+            {         
+                "id": 18,
+                "name": "Мартелу", 
+                "avatar": "./Resource/avatars/UI_PL_BRA_BOPE_A_Small.png", 
+                "isEnable": true 
             }
         ],
         "supportArray":
