@@ -158,15 +158,15 @@
 .operators{
 
     &Area{
-        height: 100px;
+        height: 130px;
     }
     &Search{
         border-radius: 5px;
         margin-left: 10px;
         margin-top: 5px;
-        height: 20px;
-        font-size: 10pt;
-        width: 120px;
+        height: 30px;
+        font-size: 12pt;
+        width: 195px;
         border: 2px solid;
         border-color: $contentAccentColor;
         padding-left: 10px;
@@ -205,7 +205,7 @@
                 margin-bottom: 5px;
                 cursor: pointer;
                 width: 25px;
-                height: 40px;
+                height: 50px;
             }
             &Left{
             }
@@ -221,8 +221,8 @@
         border: 2px solid;
         border-color: $contentAccentColor;
         border-radius: 10px;
-        min-height: 60px;
-        min-width: 60px;
+        min-height: 80px;
+        min-width: 80px;
         overflow: hidden;
         margin-right: 15px;
         margin-bottom: 2.5px;
@@ -232,10 +232,13 @@
             background-color: rgba($contentMainBgColor, 0.5);
             color: $contentExtraTxtColor;
         }
+        &:last-child {
+            margin-right: 0px;
+        }
     }
     &Img{
-        height: 58px;
-        width: 58px;
+        height: 78px;
+        width: 78px;
         position: absolute;
         top: 0;
         left: 0;
@@ -244,8 +247,8 @@
         height: 35px;
         width: 35px;
         position: absolute;
-        top: 22px;
-        left: 11.5px;
+        top: 42px;
+        left: 21.5px;
     }
     &AllNoneContainer{
         display: flex;
@@ -254,8 +257,8 @@
             background-color: transparent;
             color: $contentMainTxtColor;
         }
-        height: 60px;
-        width: 60px;
+        height: 80px;
+        width: 80px;
         margin-right: 0;
     }
     &AllNone{
@@ -289,7 +292,7 @@
     flex-direction: column;
 
     &Area{
-        height: 120px;
+        height: 160px;
     }
     &InputContainer{
         display: flex;
@@ -381,7 +384,7 @@
         border-color: $contentAccentColor;
         border-radius: 5px;
         height: 30px;
-        min-width: 150px;
+        min-width: 200px;
         width: auto;
         margin: 10px 5px 0 5px;
     }

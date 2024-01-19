@@ -4,10 +4,6 @@
         "modeArray":
         [
             {
-                "name": "Ранговый бой",             
-                "isEnable": false 
-            },
-            {
                 "name": "Столкновение",             
                 "isEnable": false 
             },
@@ -16,117 +12,147 @@
                 "isEnable": false 
             },
             {
-                "name": "Фронт",             
+                "name": "Ранговые бои",             
+                "isEnable": false 
+            },
+            {
+                "name": "Рубеж",             
                 "isEnable": true 
+            },
+            {
+                "name": "Фронт",             
+                "isEnable": false 
+            },
+            {
+                "name": "Зачистка",             
+                "isEnable": false 
+            },
+            {
+                "name": "Спецоперация",             
+                "isEnable": false 
+            },
+            {
+                "name": "Натиск: Ветеран",             
+                "isEnable": false 
+            },
+            {
+                "name": "Натиск: Легенда",             
+                "isEnable": false 
             }
         ],
         "assaultArray":
         [
             {         
                 "id": 1,
+                "name": "Рекрут", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_RECRUIT_A_Small.png", 
+                "isEnable": false 
+            },
+            {         
+                "id": 2,
                 "name": "Волк", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 2,
+                "id": 3,
                 "name": "Перун", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 3,
+                "id": 4,
                 "name": "Ворон", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_SSO2013_A_ES_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 4,
+                "id": 5,
                 "name": "Плут", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_22SPN2016_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 5,
+                "id": 6,
                 "name": "Кошмар", 
                 "avatar": "./Resource/avatars/UI_PL_POL_GROM2014_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 6,
+                "id": 7,
                 "name": "Рейн", 
                 "avatar": "./Resource/avatars/UI_PL_DEU_KSK2011_A_Small.png", 
                 "isEnable": true 
             },
 
             {         
-                "id": 7,
+                "id": 8,
                 "name": "Корсар", 
                 "avatar": "./Resource/avatars/UI_PL_USA_SEAL2014_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 8,
+                "id": 9,
                 "name": "Слай", 
                 "avatar": "./Resource/avatars/UI_PL_USA_CST_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 9,
+                "id": 10,
                 "name": "Стерлинг", 
                 "avatar": "./Resource/avatars/UI_PL_GBR_TFB2008_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 10,
+                "id": 11,
                 "name": "Люмен", 
                 "avatar": "./Resource/avatars/UI_EMPTY_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 11,
+                "id": 12,
                 "name": "Авангард", 
                 "avatar": "./Resource/avatars/UI_PL_FRA_RAID2017_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 12,
+                "id": 13,
                 "name": "Афела", 
                 "avatar": "./Resource/avatars/UI_PL_ISR_NESHER2015_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 13,
+                "id": 14,
                 "name": "Фаро", 
                 "avatar": "./Resource/avatars/UI_PL_ESP_EZAPAC_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 14,
+                "id": 15,
                 "name": "Мустанг", 
                 "avatar": "./Resource/avatars/UI_PL_KAZ_ARYSTAN_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 15,
+                "id": 16,
                 "name": "Лазутчик", 
                 "avatar": "./Resource/avatars/UI_PL_BLR_SSO_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 16,
+                "id": 17,
                 "name": "Старкад", 
                 "avatar": "./Resource/avatars/UI_PL_SWE_AMF_A_Small.png", 
                 "isEnable": false 
             },
             {         
-                "id": 17,
+                "id": 18,
                 "name": "Шаовэй", 
                 "avatar": "./Resource/avatars/UI_PL_CHN_JIAOLONG_A_Small.png", 
                 "isEnable": true 
             },
             {         
-                "id": 18,
+                "id": 19,
                 "name": "Мартелу", 
                 "avatar": "./Resource/avatars/UI_PL_BRA_BOPE_A_Small.png", 
                 "isEnable": true 
@@ -136,49 +162,379 @@
         [
             {         
                 "id": 1,
+                "name": "Рекрут", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_RECRUIT_G_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 2,
                 "name": "Алмаз", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_G_Small.png", 
                 "isEnable": true
             },
             {         
-                "id": 2,
+                "id": 3,
                 "name": "Сварог", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_G_Small.png", 
                 "isEnable": false 
+            },
+            {         
+                "id": 4,
+                "name": "Спутник", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_SSO2013_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 5,
+                "name": "Кит", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_22SPN2016_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 6,
+                "name": "Пророк", 
+                "avatar": "./Resource/avatars/UI_PL_POL_GROM2014_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 7,
+                "name": "Штерн", 
+                "avatar": "./Resource/avatars/UI_PL_DEU_KSK2011_G_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 8,
+                "name": "Бурбон", 
+                "avatar": "./Resource/avatars/UI_PL_USA_SEAL2014_G_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 9,
+                "name": "Фортресс", 
+                "avatar": "./Resource/avatars/UI_PL_USA_CST_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 10,
+                "name": "Бишоп", 
+                "avatar": "./Resource/avatars/UI_PL_GBR_TFB2008_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 11,
+                "name": "Тауэр", 
+                "avatar": "./Resource/avatars/UI_EMPTY_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 12,
+                "name": "Бастион", 
+                "avatar": "./Resource/avatars/UI_PL_FRA_RAID2017_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 13,
+                "name": "Хагана", 
+                "avatar": "./Resource/avatars/UI_PL_ISR_NESHER2015_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 14,
+                "name": "Матадор", 
+                "avatar": "./Resource/avatars/UI_PL_ESP_EZAPAC_G_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 15,
+                "name": "Тибет", 
+                "avatar": "./Resource/avatars/UI_PL_KAZ_ARYSTAN_G_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 16,
+                "name": "Зубр", 
+                "avatar": "./Resource/avatars/UI_PL_BLR_SSO_G_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 17,
+                "name": "Один", 
+                "avatar": "./Resource/avatars/UI_PL_SWE_AMF_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 18,
+                "name": "Инчжоу", 
+                "avatar": "./Resource/avatars/UI_PL_CHN_JIAOLONG_G_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 19,
+                "name": "Баррейра", 
+                "avatar": "./Resource/avatars/UI_PL_BRA_BOPE_G_Small.png", 
+                "isEnable": false
             }
         ],
         "medicArray":
         [
             {         
                 "id": 1,
+                "name": "Рекрут", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_RECRUIT_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 2,
                 "name": "Дед", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_M_Small.png", 
                 "isEnable": true
             },
             {         
-                "id": 2,
+                "id": 3,
                 "name": "Травник", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_M_Small.png", 
-                "isEnable": false 
+                "isEnable": true 
+            },
+            {         
+                "id": 4,
+                "name": "Бард", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_SSO2013_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 5,
+                "name": "Каравай", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_22SPN2016_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 6,
+                "name": "Микола", 
+                "avatar": "./Resource/avatars/UI_PL_POL_GROM2014_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 7,
+                "name": "Шатц", 
+                "avatar": "./Resource/avatars/UI_PL_DEU_KSK2011_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 8,
+                "name": "Монк", 
+                "avatar": "./Resource/avatars/UI_PL_USA_SEAL2014_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 9,
+                "name": "Боунс", 
+                "avatar": "./Resource/avatars/UI_PL_USA_CST_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 10,
+                "name": "Ватсон", 
+                "avatar": "./Resource/avatars/UI_PL_GBR_TFB2008_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 11,
+                "name": "Спарк", 
+                "avatar": "./Resource/avatars/UI_EMPTY_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 12,
+                "name": "Велюр", 
+                "avatar": "./Resource/avatars/UI_PL_FRA_RAID2017_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 13,
+                "name": "Шаршерет", 
+                "avatar": "./Resource/avatars/UI_PL_ISR_NESHER2015_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 14,
+                "name": "Мигель", 
+                "avatar": "./Resource/avatars/UI_PL_ESP_EZAPAC_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 15,
+                "name": "Багги", 
+                "avatar": "./Resource/avatars/UI_PL_KAZ_ARYSTAN_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 16,
+                "name": "Каваль", 
+                "avatar": "./Resource/avatars/UI_PL_BLR_SSO_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 17,
+                "name": "Фрейр", 
+                "avatar": "./Resource/avatars/UI_PL_SWE_AMF_M_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 18,
+                "name": "Яован", 
+                "avatar": "./Resource/avatars/UI_PL_CHN_JIAOLONG_M_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 19,
+                "name": "Асаи", 
+                "avatar": "./Resource/avatars/UI_PL_BRA_BOPE_M_Small.png", 
+                "isEnable": true
             }
         ],
         "sniperArray":
         [
             {         
                 "id": 1,
+                "name": "Рекрут", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_RECRUIT_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 2,
                 "name": "Стрелок", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2004_S_Small.png", 
                 "isEnable": true
             },
             {         
-                "id": 2,
+                "id": 3,
                 "name": "Сокол", 
                 "avatar": "./Resource/avatars/UI_PL_RUS_FSB2016_S_Small.png", 
                 "isEnable": false 
+            },
+            {         
+                "id": 4,
+                "name": "Комар", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_SSO2013_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 5,
+                "name": "Тень", 
+                "avatar": "./Resource/avatars/UI_PL_RUS_22SPN2016_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 6,
+                "name": "Стилет", 
+                "avatar": "./Resource/avatars/UI_PL_POL_GROM2014_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 7,
+                "name": "Курт", 
+                "avatar": "./Resource/avatars/UI_PL_DEU_KSK2011_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 8,
+                "name": "Скаут", 
+                "avatar": "./Resource/avatars/UI_PL_USA_SEAL2014_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 9,
+                "name": "Аваланш", 
+                "avatar": "./Resource/avatars/UI_PL_USA_CST_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 10,
+                "name": "Арчер", 
+                "avatar": "./Resource/avatars/UI_PL_GBR_TFB2008_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 11,
+                "name": "Белл", 
+                "avatar": "./Resource/avatars/UI_EMPTY_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 12,
+                "name": "Вагабонд", 
+                "avatar": "./Resource/avatars/UI_PL_FRA_RAID2017_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 13,
+                "name": "Эйма", 
+                "avatar": "./Resource/avatars/UI_PL_ISR_NESHER2015_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 14,
+                "name": "Диабло", 
+                "avatar": "./Resource/avatars/UI_PL_ESP_EZAPAC_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 15,
+                "name": "Султан", 
+                "avatar": "./Resource/avatars/UI_PL_KAZ_ARYSTAN_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 16,
+                "name": "Бусел", 
+                "avatar": "./Resource/avatars/UI_PL_BLR_SSO_S_Small.png", 
+                "isEnable": false
+            },
+            {         
+                "id": 17,
+                "name": "Видар", 
+                "avatar": "./Resource/avatars/UI_PL_SWE_AMF_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 18,
+                "name": "Цанлун", 
+                "avatar": "./Resource/avatars/UI_PL_CHN_JIAOLONG_S_Small.png", 
+                "isEnable": true
+            },
+            {         
+                "id": 19,
+                "name": "Касадор", 
+                "avatar": "./Resource/avatars/UI_PL_BRA_BOPE_S_Small.png", 
+                "isEnable": false
             }
         ],
         "formulaBtnArray":
         [            
+            {
+                "label": "Раунды",
+                "value": "-"
+            },
+            {
+                "label": "Ликвидации",
+                "value": "-"
+            },
+            {
+                "label": "Ликвидации (Боты)",
+                "value": "-"
+            },
+            {
+                "label": "Добивания",
+                "value": "-"
+            },
+            {
+                "label": "Смерти",
+                "value": "-"
+            },
+            {
+                "label": "Помощь",
+                "value": "-"
+            },
             {
                 "label": "Урон",
                 "value": "damage"
@@ -186,7 +542,11 @@
             {
                 "label": "Лечение",
                 "value": "heal"
-            }                
+            },
+            {
+                "label": "Реанимации",
+                "value": "-"
+            }      
         ],
         "formulasArray": 
         [

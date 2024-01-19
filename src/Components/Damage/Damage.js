@@ -85,40 +85,40 @@ function Damage() {
   }, [])
 
   // ====== FOR VERCEL LOCAL DEMO ======
-  useEffect(() => {
-    fetch("https://god-assistant.vercel.app/test.json")
-      .then(data => data.json())
-      .then((data) => {
-        setModeArray(data.damageCard.modeArray)
-        data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
+  // useEffect(() => {
+  //   fetch("https://god-assistant.vercel.app/test.json")
+  //     .then(data => data.json())
+  //     .then((data) => {
+  //       setModeArray(data.damageCard.modeArray)
+  //       data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
 
-        setDay(data.damageCard.currentDay)
+  //       setDay(data.damageCard.currentDay)
 
-        setAssaultArray(data.damageCard.assaultArray)
-        setSupportArray(data.damageCard.supportArray)
-        setMedicArray(data.damageCard.medicArray)
-        setSniperArray(data.damageCard.sniperArray)
-        setState({ ...state, operators: data.damageCard.assaultArray })
+  //       setAssaultArray(data.damageCard.assaultArray)
+  //       setSupportArray(data.damageCard.supportArray)
+  //       setMedicArray(data.damageCard.medicArray)
+  //       setSniperArray(data.damageCard.sniperArray)
+  //       setState({ ...state, operators: data.damageCard.assaultArray })
 
-        setFormula(data.damageCard.currentFormulas.assault)
-        setCurrentFormulas({
-          assault: data.damageCard.currentFormulas.assault,
-          support: data.damageCard.currentFormulas.support,
-          medic: data.damageCard.currentFormulas.medic,
-          sniper: data.damageCard.currentFormulas.sniper,
-        })
-        setFormulaBtnArray(data.damageCard.formulaBtnArray)
-        setFormulasList(data.damageCard.formulasArray)
+  //       setFormula(data.damageCard.currentFormulas.assault)
+  //       setCurrentFormulas({
+  //         assault: data.damageCard.currentFormulas.assault,
+  //         support: data.damageCard.currentFormulas.support,
+  //         medic: data.damageCard.currentFormulas.medic,
+  //         sniper: data.damageCard.currentFormulas.sniper,
+  //       })
+  //       setFormulaBtnArray(data.damageCard.formulaBtnArray)
+  //       setFormulasList(data.damageCard.formulasArray)
 
-        setActivityIsPaused({
-          assault: data.damageCard.activityIsPaused.assault,
-          support: data.damageCard.activityIsPaused.support,
-          medic: data.damageCard.activityIsPaused.medic,
-          sniper: data.damageCard.activityIsPaused.sniper,
-        })
-        setDisableBtn(data.damageCard.activityIsPaused.assault)
-      })
-  }, [])
+  //       setActivityIsPaused({
+  //         assault: data.damageCard.activityIsPaused.assault,
+  //         support: data.damageCard.activityIsPaused.support,
+  //         medic: data.damageCard.activityIsPaused.medic,
+  //         sniper: data.damageCard.activityIsPaused.sniper,
+  //       })
+  //       setDisableBtn(data.damageCard.activityIsPaused.assault)
+  //     })
+  // }, [])
   // ====== FOR VERCEL LOCAL DEMO ======
 
   useEffect(() => {
@@ -151,6 +151,7 @@ function Damage() {
   }, [role])
 
   useEffect(() => {
+    let selector = document.getElementById("formula_selector")
     let tempArr = formulasList.map(elem => elem.value)
     if (!formula) {
       setSavePresetFlag(false)
@@ -158,9 +159,12 @@ function Damage() {
     } else if (formula && tempArr.every(elem => elem.toLowerCase().replaceAll(' ', '') !== formula.toLowerCase().replaceAll(' ', ''))) {
       setSavePresetFlag(true)
       setDeletePresetFlag(false)
+      selector.selectedIndex = 0
     } else {
       setSavePresetFlag(false)
       setDeletePresetFlag(true)
+      let choise = tempArr.filter(elem => elem.toLowerCase().replaceAll(' ', '') == formula.toLowerCase().replaceAll(' ', ''))
+      selector.value = choise[0]
     }
   }, [formula, formulasList])
 
@@ -190,26 +194,26 @@ function Damage() {
   function handleScrollLeft() {
     let carousel = document.getElementById("carousel")
     let repeats = carousel.offsetWidth / 2
-    let timerId = setInterval(() => {carousel.scrollLeft -= repeats/10;}, 20);
-    setTimeout(() => {clearInterval(timerId)}, 200);
+    let timerId = setInterval(() => { carousel.scrollLeft -= repeats / 10; }, 20);
+    setTimeout(() => { clearInterval(timerId) }, 200);
   }
   function handleScrollRight() {
     let carousel = document.getElementById("carousel")
     let repeats = carousel.offsetWidth / 2
-    let timerId = setInterval(() => {carousel.scrollLeft += repeats/10;}, 20);
-    setTimeout(() => {clearInterval(timerId)}, 220);
+    let timerId = setInterval(() => { carousel.scrollLeft += repeats / 10; }, 20);
+    setTimeout(() => { clearInterval(timerId) }, 220);
   }
   function handleWheelCarousel(e) {
     let carousel = document.getElementById("carousel")
     if (e.deltaY < 0) {
       let repeats = carousel.offsetWidth / 5
-      let timerId = setInterval(() => {carousel.scrollLeft -= repeats/10;}, 20);
-      setTimeout(() => {clearInterval(timerId)}, 200);
+      let timerId = setInterval(() => { carousel.scrollLeft -= repeats / 10; }, 20);
+      setTimeout(() => { clearInterval(timerId) }, 200);
     }
     else if (e.deltaY > 0) {
       let repeats = carousel.offsetWidth / 5
-      let timerId = setInterval(() => {carousel.scrollLeft += repeats/10;}, 20);
-      setTimeout(() => {clearInterval(timerId)}, 200);
+      let timerId = setInterval(() => { carousel.scrollLeft += repeats / 10; }, 20);
+      setTimeout(() => { clearInterval(timerId) }, 200);
     }
   }
   function handleFormulaTextChange(e) {
@@ -414,11 +418,14 @@ function Damage() {
                   </div>
                 </div>
               }
-              <button
-                className="operatorsCarouselBtn operatorsCarouselBtnLeft"
-                onClick={handleScrollLeft}>
-                <img className="operatorsCarouselBtnImg" title="Scroll left" src={'./Resource/arrow-left.png'} />
-              </button>
+              {
+                (!state.search) &&
+                <button
+                  className="operatorsCarouselBtn operatorsCarouselBtnLeft"
+                  onClick={handleScrollLeft}>
+                  <img className="operatorsCarouselBtnImg" src={'./Resource/arrow-left.png'} />
+                </button>
+              }
               <div id="carousel" className="operatorsCarousel smooth-scroll" onWheel={handleWheelCarousel}>
                 {
                   filteredOperators.map((operator, key) =>
@@ -433,15 +440,18 @@ function Damage() {
                         setState({ ...state, operators: operators })
                       }}>
                       <img className="operatorsImg" title={operator.name} src={operator.avatar} />
-                      <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} />
+                      <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} title={operator.name}/>
                     </div>)
                 }
               </div>
-              <button
-                className="operatorsCarouselBtn operatorsCarouselBtnRight"
-                onClick={handleScrollRight}>
-                <img className="operatorsCarouselBtnImg" title="Scroll Right" src={'./Resource/arrow-right.png'} />
-              </button>
+              {
+                (!state.search) &&
+                <button
+                  className="operatorsCarouselBtn operatorsCarouselBtnRight"
+                  onClick={handleScrollRight}>
+                  <img className="operatorsCarouselBtnImg" src={'./Resource/arrow-right.png'} />
+                </button>
+              }
             </div>
           </div>
         </div>
@@ -471,6 +481,7 @@ function Damage() {
                 </button>
               </div>
               <select
+                id="formula_selector"
                 name="formula_selector"
                 className="formulaPreset"
                 title="Select formula preset"
