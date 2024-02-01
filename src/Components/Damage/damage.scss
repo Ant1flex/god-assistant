@@ -290,7 +290,7 @@
 .formula{
     display: flex;
     flex-direction: column;
-
+    
     &Area{
         height: 160px;
     }
@@ -368,25 +368,56 @@
     &BtnContainer{
         // border-top: 2px solid;
         // border-color: $contentAccentColor;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 0 15px 5px 15px;
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: flex-start;
+        // align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 10px 5px 5px 5px;
+        background-color: rgba($contentMainBgColor, 0.15);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: 110px;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 0px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $contentAccentColor;
+            border-radius: 5px;
+        }
+        &::-webkit-scrollbar-button:single-button{
+            background-color: transparent;
+            display: block;
+            border-style: solid;
+            height: 7px;
+            width: 10px;
+        }
+        &::-webkit-scrollbar-button:single-button:vertical:decrement {
+            border-width: 0 5px 5px 5px;
+            border-color: transparent transparent $contentAccentColor transparent;
+        }
+        &::-webkit-scrollbar-button:single-button:vertical:increment {
+            border-width: 5px 5px 0 5px;
+            border-color: $contentAccentColor transparent transparent transparent;
+        }
     }
     &BtnWrapper{
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        flex-grow: 0;
+        flex-grow: 1;
         flex-basis: 0;
-        border: 2px solid;
+        // border: 1px solid;
         border-color: $contentAccentColor;
-        border-radius: 5px;
-        height: 30px;
-        min-width: 200px;
+        height: 55px;
+        min-width: 100px;
         width: auto;
-        margin: 10px 5px 0 5px;
     }
 
     &Btn{

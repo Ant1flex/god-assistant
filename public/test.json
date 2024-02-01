@@ -513,27 +513,27 @@
         [            
             {
                 "label": "Раунды",
-                "value": "-"
+                "value": "rounds"
             },
             {
                 "label": "Ликвидации",
-                "value": "-"
+                "value": "kills"
             },
             {
                 "label": "Ликвидации (Боты)",
-                "value": "-"
+                "value": "botKills"
             },
             {
                 "label": "Добивания",
-                "value": "-"
+                "value": "executions"
             },
             {
                 "label": "Смерти",
-                "value": "-"
+                "value": "deaths"
             },
             {
                 "label": "Помощь",
-                "value": "-"
+                "value": "assists"
             },
             {
                 "label": "Урон",
@@ -545,7 +545,7 @@
             },
             {
                 "label": "Реанимации",
-                "value": "-"
+                "value": "revives"
             }      
         ],
         "formulasArray": 
