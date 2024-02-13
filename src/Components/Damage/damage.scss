@@ -90,7 +90,7 @@
 }
 
 .contentContainer{
-    margin: 10px 0px 10px 30px;
+    margin: 10px 30px 10px 30px;
 }
 
 .area{
@@ -144,7 +144,6 @@
     }
     &Day{
         color: $contentMainTxtColor;
-        margin-right: 30px;
         border-radius: 10px;
         width: 100%;
         height: 40px;
@@ -159,6 +158,7 @@
 
     &Area{
         height: 130px;
+        margin: 0px;
     }
     &Search{
         border-radius: 5px;
@@ -177,7 +177,7 @@
         justify-content: flex-start;
         background-color: transparent;
         outline: none;
-        margin: 5px 20px 10px 20px;
+        margin: 5px 0px 10px 20px;
     }
     &Carousel{
         display: flex;
@@ -290,9 +290,9 @@
 .formula{
     display: flex;
     flex-direction: column;
-    
     &Area{
         height: 160px;
+        margin: 0px;
     }
     &InputContainer{
         display: flex;
@@ -468,4 +468,100 @@
             color: darken($contentExtraTxtColor, 20%);
             cursor: default;
         }
+}
+
+@media screen and (max-width: 426px) {
+    .eventName{
+        width: 50%;
+        margin-left: 15px;
+    }
+    .role{
+        margin-right: 15px;
+        width: 50%;
+    }
+    .modeUpdateContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .mode{
+        width: auto;
+        margin-right: 30px;
+    }
+    
+    .update{
+        width: auto;
+        margin-left: 30px;
+    }
+    .operators{
+        &Area{
+            height: 110px;
+        }
+        &Search{
+            font-size: 14pt;
+        }
+        &List{
+            margin: 5px 10px 10px 10px;
+        }
+        &Carousel{
+            &Btn{
+                display: none;
+                &Img{
+                    width: 20px;
+                    height: 40px;
+                }
+                &Left{
+                    // margin-left: -2.5px;
+                }
+                &Right{
+                    // margin-right: -5px;
+                }
+            }
+        }
+        &Elem{
+            min-height: 60px;
+            min-width: 60px;
+            margin-right: 5px;
+        }
+        &Img{
+            height: 58px;
+            width: 58px;
+        }
+        &Access{
+            height: 30px;
+            width: 30px;
+            top: 25px;
+            left: 15.5px;
+        }
+        &AllNoneContainer{
+            height: 60px;
+            width: 60px;
+            // margin-right: 0;
+        }
+        &AllNone{
+            font-size: 12pt;
+        }
+    }
+    .formula{
+        &Area{
+            height: 215px;
+        }
+        &Text{
+            width: 70%;
+            font-size: 16pt;
+            padding-left: 7.5px;
+        }
+        &Preset{
+            width: 30%;
+        }
+        &BtnContainer{
+            grid-template-columns: repeat(1, 1fr);
+            height: 165px;
+        }
+    }
+    .btnContainer{
+        margin-bottom: 120px;
+    }
+    .btnWrapper{
+        height: 40px;
+    }
 }

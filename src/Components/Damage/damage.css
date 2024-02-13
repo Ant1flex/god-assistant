@@ -72,7 +72,7 @@
   width: 100vw; }
 
 .contentContainer {
-  margin: 10px 0px 10px 30px; }
+  margin: 10px 30px 10px 30px; }
 
 .area {
   margin-right: 30px;
@@ -114,7 +114,6 @@
     cursor: text; }
   .updateDay {
     color: #6D727D;
-    margin-right: 30px;
     border-radius: 10px;
     width: 100%;
     height: 40px;
@@ -125,7 +124,8 @@
     background-origin: content-box; }
 
 .operatorsArea {
-  height: 130px; }
+  height: 130px;
+  margin: 0px; }
 .operatorsSearch {
   border-radius: 5px;
   margin-left: 10px;
@@ -142,7 +142,7 @@
   justify-content: flex-start;
   background-color: transparent;
   outline: none;
-  margin: 5px 20px 10px 20px; }
+  margin: 5px 0px 10px 20px; }
 .operatorsCarousel {
   display: flex;
   flex-direction: row;
@@ -232,7 +232,8 @@
   display: flex;
   flex-direction: column; }
   .formulaArea {
-    height: 160px; }
+    height: 160px;
+    margin: 0px; }
   .formulaInputContainer {
     display: flex;
     justify-content: space-between; }
@@ -368,5 +369,73 @@
     background-color: rgba(0, 0, 0, 0.5);
     color: #868686;
     cursor: default; }
+
+@media screen and (max-width: 426px) {
+  .eventName {
+    width: 50%;
+    margin-left: 15px; }
+
+  .role {
+    margin-right: 15px;
+    width: 50%; }
+
+  .modeUpdateContainer {
+    display: flex;
+    flex-direction: column; }
+
+  .mode {
+    width: auto;
+    margin-right: 30px; }
+
+  .update {
+    width: auto;
+    margin-left: 30px; }
+
+  .operatorsArea {
+    height: 110px; }
+  .operatorsSearch {
+    font-size: 14pt; }
+  .operatorsList {
+    margin: 5px 10px 10px 10px; }
+  .operatorsCarouselBtn {
+    display: none; }
+    .operatorsCarouselBtnImg {
+      width: 20px;
+      height: 40px; }
+  .operatorsElem {
+    min-height: 60px;
+    min-width: 60px;
+    margin-right: 5px; }
+  .operatorsImg {
+    height: 58px;
+    width: 58px; }
+  .operatorsAccess {
+    height: 30px;
+    width: 30px;
+    top: 25px;
+    left: 15.5px; }
+  .operatorsAllNoneContainer {
+    height: 60px;
+    width: 60px; }
+  .operatorsAllNone {
+    font-size: 12pt; }
+
+  .formulaArea {
+    height: 215px; }
+  .formulaText {
+    width: 70%;
+    font-size: 16pt;
+    padding-left: 7.5px; }
+  .formulaPreset {
+    width: 30%; }
+  .formulaBtnContainer {
+    grid-template-columns: repeat(1, 1fr);
+    height: 165px; }
+
+  .btnContainer {
+    margin-bottom: 120px; }
+
+  .btnWrapper {
+    height: 40px; } }
 
 /*# sourceMappingURL=damage.css.map */

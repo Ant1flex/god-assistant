@@ -349,7 +349,7 @@ function Damage() {
     <div className="contentWrapper">
       <div className="content">
         <div className="header">
-          <h1>Damage dealer</h1>
+          <h1 className="eventName">Damage dealer</h1>
           <select
             name="role_selector"
             className="role"
@@ -440,7 +440,7 @@ function Damage() {
                         setState({ ...state, operators: operators })
                       }}>
                       <img className="operatorsImg" title={operator.name} src={operator.avatar} />
-                      <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} title={operator.name}/>
+                      <img className={`operatorsAccess ${!operator.isEnable ? 'hidden' : ''}`} src={'./Resource/access.png'} title={operator.name} />
                     </div>)
                 }
               </div>
@@ -486,11 +486,12 @@ function Damage() {
                 className="formulaPreset"
                 title="Select formula preset"
                 onChange={e => handleFormulaPresetChange(e)}>
-                <option value="?" selected hidden>Choose formula preset...</option>
+                <option value="?" selected hidden>Preset...</option>
                 {
                   formulasList.map((formula, key) => <option className="formulaOption" value={formula.value} key={key}>{formula.value}</option>)
                 }
               </select>
+
             </div>
             <div className="formulaBtnContainer">
               {

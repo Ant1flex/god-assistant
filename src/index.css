@@ -29,3 +29,9 @@ code {
   display: block;
   user-select: none;
 }
+
+@media screen and (max-width: 426px) {
+  .App{
+    background-position: 25%;
+  }
+}
