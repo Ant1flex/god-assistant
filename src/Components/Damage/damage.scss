@@ -17,10 +17,10 @@
 
 .content{
     &Wrapper{
-        min-height: 100%;
+        // min-height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
     }
     h1 {
         font-size: 18pt;
@@ -437,7 +437,6 @@
 .btnContainer{
     display: flex;
     justify-content: center;
-    margin-bottom: 120px;
 }
 
 .btnWrapper{
@@ -558,10 +557,45 @@
             height: 165px;
         }
     }
-    .btnContainer{
-        margin-bottom: 120px;
-    }
     .btnWrapper{
         height: 40px;
+    }
+}
+
+@media screen and (max-width: 426px) and (max-height: 901px) {
+    .btnContainer{
+        margin-top: 30px;
+    }
+}
+@media screen and (max-width: 426px) and (max-height: 851px) {
+    .btnContainer{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 426px) and (max-height: 831px) {
+    .btnContainer{
+        margin-top: 0px;
+    }
+}
+@media screen and (max-width: 426px) and (max-height: 811px) {
+    .formula{
+        &Area{
+            height: 160px;
+        }
+        &Text{
+            width: 70%;
+            font-size: 16pt;
+            padding-left: 7.5px;
+        }
+        &Preset{
+            width: 30%;
+        }
+        &BtnContainer{
+            grid-template-columns: repeat(1, 1fr);
+            height: 110px;
+        }
+    }
+    .btnContainer{
+        margin-top: 10px;
     }
 }

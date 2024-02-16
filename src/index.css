@@ -31,7 +31,11 @@ code {
 }
 
 @media screen and (max-width: 426px) {
+  body{
+    /* overflow: visible; */
+  }
   .App{
     background-position: 25%;
+    /* height: 100%; */
   }
 }

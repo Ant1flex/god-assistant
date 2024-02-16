@@ -1,5 +1,6 @@
 import { concat } from "lodash"
 import React, { useEffect, useState, useRef } from "react"
+import ConfirmModal from "../Modal/Confirm";
 
 import "./damage.css"
 
@@ -48,6 +49,12 @@ function Damage() {
   const [savePresetFlag, setSavePresetFlag] = useState(false)
   const [deletePresetFlag, setDeletePresetFlag] = useState(false)
   const [disableBtn, setDisableBtn] = useState(false)
+
+  const [confirmModal, setConfirmModal] = useState({
+    show: false,
+    description: 'You sure?',
+    action: '',
+  })
 
   useEffect(() => {
     fetch("http://localhost:3000/test.json")
@@ -347,6 +354,12 @@ function Damage() {
 
   return (
     <div className="contentWrapper">
+      <ConfirmModal
+        modalConfigs={confirmModal}
+        onClose={() => setConfirmModal({ ...confirmModal, show: false })}
+        onConfirm={() => confirmModal.action()}
+      ></ConfirmModal>
+
       <div className="content">
         <div className="header">
           <h1 className="eventName">Damage dealer</h1>
@@ -471,12 +484,12 @@ function Damage() {
               <div className="formulaPresetBtnContainer">
                 <button
                   className={`formulaPresetBtn formulaPresetBtnSave ${savePresetFlag ? '' : 'hidden'}`}
-                  onClick={handleSave}>
+                  onClick={() => setConfirmModal({ show: true, description: 'Save formula to preset list?', action: handleSave })}>
                   <img className="formulaPresetBtnSaveImg" title="Save preset" src={'./Resource/save.png'} />
                 </button>
                 <button
                   className={`formulaPresetBtn formulaPresetBtnDelete ${deletePresetFlag ? '' : 'hidden'}`}
-                  onClick={handleDelete}>
+                  onClick={() => setConfirmModal({ show: true, description: 'Delete formula from preset list?', action: handleDelete })}>
                   <img className="formulaPresetBtnDeleteImg" title="Delete preset" src={'./Resource/delete.png'} />
                 </button>
               </div>
@@ -512,10 +525,18 @@ function Damage() {
       </div>
       <div className="btnContainer">
         <div className="btnWrapper">
-          <button className="btn pauseBtn" onClick={handlePauseEvent} disabled={disableBtn}>{!disableBtn ? "Pause event" : "Event on pause"}</button>
+          <button className="btn pauseBtn" onClick={() => setConfirmModal({ show: true, description: 'Pause event?', action: handlePauseEvent })} disabled={disableBtn}>
+            {!disableBtn ? "Pause event" : "Event on pause"}
+          </button>
         </div>
         <div className="btnWrapper">
-          <button className="btn updateBtn" onClick={handleSendData}>{!disableBtn ? "Update rules" : "Resume event"}</button>
+          <button className="btn updateBtn" onClick={() => {
+            !disableBtn ?
+              setConfirmModal({ show: true, description: 'Update rules?', action: handleSendData })
+              : setConfirmModal({ show: true, description: 'Resume event?', action: handleSendData })
+          }}>
+            {!disableBtn ? "Update rules" : "Resume event"}
+          </button>
         </div>
       </div>
     </div>

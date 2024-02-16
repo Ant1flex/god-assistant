@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.confirmWrapper {
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 40px 100px 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s; }
+  .confirmWrapper::before {
+    content: "";
+    display: block;
+    height: 1px;
+    flex-grow: 1; }
+  .confirmWrapper::after {
+    content: "";
+    display: block;
+    height: 1px;
+    flex-grow: 1; }
+.confirmContent {
+  user-select: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 150px;
+  max-width: 40rem;
+  padding: 50px 20px 50px 20px;
+  background-color: rgba(27, 53, 51, 0.8);
+  border-radius: 30px;
+  filter: drop-shadow(0 0 20px rgba(28, 104, 102, 0.7));
+  transform: translateY(50px);
+  transition: transform 0.3s; }
+.confirmDescription {
+  color: #B9B9B9;
+  margin: 10px 0 10px 0;
+  font-size: 16pt; }
+.confirmBtn {
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #B9B9B9;
+  font-size: 13pt;
+  width: 100%;
+  height: 100%; }
+  .confirmBtn:hover {
+    background-color: rgba(109, 114, 125, 0.25); }
+  .confirmBtnContainer {
+    margin: 10px 0 10px 0; }
+  .confirmBtnWrapper {
+    display: inline-flex;
+    border-radius: 10px;
+    width: 100px;
+    height: 25px;
+    margin: 5px 10px 5px 10px;
+    background-color: rgba(109, 114, 125, 0.25); }
+
+.ReactModal__Overlay--after-open {
+  opacity: 1; }
+
+.ReactModal__Overlay--before-close {
+  opacity: 0; }
+
+.ReactModal__Content--after-open {
+  transform: translateY(0); }
+
+.ReactModal__Content--before-close {
+  transform: translateY(50px); }
+
+/*# sourceMappingURL=confirm.css.map */
