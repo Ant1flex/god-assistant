@@ -23,5 +23,9 @@
         font-size: 18pt;
         color: $headerTxtColor;
         margin: 0 10px 0 10px;
+        &:hover{
+            text-decoration: underline;
+            color: $contentExtraTxtColor;
+        }
     }
 }

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import "./header.css"
 
 function Header() {
@@ -6,10 +8,10 @@ function Header() {
     <div className="headerContainer">
       <img className="logo" src={'./Resource/GODlogo.png'} />
       <div className="navbar">
-        <a className="navbarBtn" href="http://localhost:3000/">Damage</a>
-        <a className="navbarBtn" href="http://localhost:3000/">Social</a>
+        <Link className="navbarBtn" to="/">Home</Link>
+        <Link className="navbarBtn" to="/damage">Damage</Link>
+        <Link className="navbarBtn" to="/social">Social</Link>
       </div>
-
     </div>
   );
 }

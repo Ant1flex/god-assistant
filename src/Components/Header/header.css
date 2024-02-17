@@ -18,5 +18,8 @@
     font-size: 18pt;
     color: #8A8F9C;
     margin: 0 10px 0 10px; }
+    .navbarBtn:hover {
+      text-decoration: underline;
+      color: #B9B9B9; }
 
 /*# sourceMappingURL=header.css.map */
