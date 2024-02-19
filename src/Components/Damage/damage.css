@@ -456,5 +456,20 @@
 
   .btnContainer {
     margin-top: 10px; } }
+@media screen and (max-width: 376px) {
+  .content h1 {
+    font-size: 17pt; }
+
+  .header {
+    margin: 10px 15px 0px 15px; }
+
+  .eventName {
+    margin-left: 0px; }
+
+  .role {
+    margin: 6px 0px 0 15px; }
+
+  .contentContainer {
+    margin: 10px 15px 10px 15px; } }
 
 /*# sourceMappingURL=damage.css.map */
