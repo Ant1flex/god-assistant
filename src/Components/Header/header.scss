@@ -5,7 +5,8 @@
     background-color: $headerBgColor;
     display: inline-flex;
     height: 80px;
-    width: 100%;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .logo{
@@ -27,5 +28,12 @@
             text-decoration: underline;
             color: $contentExtraTxtColor;
         }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .navbarBtn{
+        font-size: 16pt;
+        margin: 0 15px 0 0;
     }
 }

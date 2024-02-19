@@ -14,7 +14,8 @@
 
 .contentWrapper {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-between; }
 .content h1 {
   font-size: 18pt;
   color: #B9B9B9;

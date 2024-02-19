@@ -2,7 +2,8 @@
   background-color: rgba(27, 53, 51, 0.8);
   display: inline-flex;
   height: 80px;
-  width: 100%; }
+  width: 100vw;
+  overflow: hidden; }
 
 .logo {
   background-color: transparent;
@@ -21,5 +22,10 @@
     .navbarBtn:hover {
       text-decoration: underline;
       color: #B9B9B9; }
+
+@media screen and (max-width: 426px) {
+  .navbarBtn {
+    font-size: 16pt;
+    margin: 0 15px 0 0; } }
 
 /*# sourceMappingURL=header.css.map */

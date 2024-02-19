@@ -20,7 +20,6 @@
 .homeDescription {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
   font-size: 16pt;
   color: #6D727D;
   font-weight: normal;
@@ -29,9 +28,21 @@
     text-decoration: none;
     font-size: 16pt;
     color: #6D727D;
-    margin: 0 10px 0 10px;
     font-weight: bold; }
     .homeDescriptionNavBtn:hover {
       text-decoration: underline; }
+
+@media screen and (max-width: 426px) {
+  .homeContent h1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 18pt; }
+
+  .homeDescription {
+    flex-wrap: wrap;
+    font-size: 14pt; }
+    .homeDescriptionNavBtn {
+      font-size: 14pt; } }
 
 /*# sourceMappingURL=homepage.css.map */
