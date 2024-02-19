@@ -47,6 +47,7 @@
   transform: translateY(50px);
   transition: transform 0.3s; }
 .confirmDescription {
+  text-align: center;
   color: #B9B9B9;
   margin: 10px 0 10px 0;
   font-size: 16pt; }
@@ -82,5 +83,22 @@
 
 .ReactModal__Content--before-close {
   transform: translateY(50px); }
+
+@media screen and (max-width: 426px) {
+  .confirmContent {
+    width: 350px; }
+
+  .confirmBtn {
+    font-size: 16pt; }
+    .confirmBtnWrapper {
+      height: 35px; } }
+@media screen and (max-width: 376px) {
+  .confirmContent {
+    width: 300px; }
+
+  .confirmBtn {
+    font-size: 16pt; }
+    .confirmBtnWrapper {
+      height: 35px; } }
 
 /*# sourceMappingURL=confirm.css.map */
