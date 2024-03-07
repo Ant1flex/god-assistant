@@ -5,21 +5,119 @@
     @include setMrPd();
 }
 
+.superstyle::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+.superstyle::-webkit-datetime-edit-fields-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .socialContent{
     &Wrapper{
-        // min-height: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        // justify-content: space-between;
+        justify-content: flex-start;
     }
     h1 {
         font-size: 18pt;
         color: $contentExtraTxtColor;
         font-weight: normal;
     }
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 16pt;
+        color: $contentMainTxtColor;
+        font-weight: normal;
+    }
+    select {
+        position: relative;
+        display: inline-block;
+        border: none;
+        background-color: rgba($contentMainBgColor, 0.25 );
+        outline: none;
+        padding-left: 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    option {
+        color: $contentMainTxtColor;
+        outline: none;
+    }
+    input {
+        color: $contentMainTxtColor;
+        background-color: transparent;
+        outline: none;
+    }
 }
 
 .socialHeader{
     display: flex;
     margin: 10px 15px 10px 15px;
+}
+
+.socialUpdTime{
+    &Content{
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &Period{
+        background-color: rgba($contentMainBgColor, 0.25 );
+        border: 2px solid;
+        border-color: $contentAccentColor;
+        margin-left: 20px;
+        border-radius: 10px;
+        width: 100%;
+        height: 40px;
+        font-size: 14pt;
+        cursor: text;
+        text-align: center;
+    }
+}
+
+.socialBtnContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 426px) {
+    .socialEventName{
+        width: 50%;
+        margin-left: 15px;
+    }
+    .socialUpdTime{
+        &Content{
+            display: flex;
+            flex-direction: column;
+        }
+        &Time{
+            margin-bottom: 20px;
+        }
+        &Day{
+            margin-bottom: 20px;
+        }
+        &Period{
+            margin-left: 0px;
+        }
+    }
+}
+@media screen and (max-width: 376px){
+    .socialEventName{
+        margin-left: 0px;
+    }
+    .socialContent{
+        h2{
+            margin-top: 10px;
+        }
+    }
 }

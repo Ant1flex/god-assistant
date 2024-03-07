@@ -578,6 +578,18 @@
             "medic": false,
             "sniper": true
         }
+    },
+    "socialCard":{
+        "currentTime": "00:00",
+        "currentDay": "Среда",
+        "currentPeriod": "4",
+
+        "activityIsPaused":
+        {
+            "textChat": false,
+            "voiceChat": false,
+            "betterOfficer": false
+        }
     }
 }
 

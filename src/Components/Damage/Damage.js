@@ -64,6 +64,7 @@ function Damage() {
         data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
 
         setDay(data.damageCard.currentDay)
+        setTime(data.damageCard.currentTime)
 
         setAssaultArray(data.damageCard.assaultArray)
         setSupportArray(data.damageCard.supportArray)
@@ -100,6 +101,7 @@ function Damage() {
         data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
 
         setDay(data.damageCard.currentDay)
+        setTime(data.damageCard.currentTime)
 
         setAssaultArray(data.damageCard.assaultArray)
         setSupportArray(data.damageCard.supportArray)
