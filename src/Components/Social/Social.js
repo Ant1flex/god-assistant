@@ -17,12 +17,33 @@ function Social() {
         betterOfficer: '',
     })
     const [disableBtn, setDisableBtn] = useState(false)
+    const [errorFlag, setErrorFlag] = useState(false)
 
     const [confirmModal, setConfirmModal] = useState({
         show: false,
         description: 'You sure?',
         action: '',
     })
+
+    {
+        if (errorFlag) {
+            fetch("https://god-assistant.vercel.app/test.json")
+                .then(data => data.json())
+                .then((data) => {
+                    setDay(data.socialCard.currentDay)
+                    setTime(data.socialCard.currentTime)
+                    setPeriod(data.socialCard.currentPeriod)
+                    setActivityIsPaused({
+                        textChat: data.socialCard.activityIsPaused.textChat,
+                        voiceChat: data.socialCard.activityIsPaused.voiceChat,
+                        betterOfficer: data.socialCard.activityIsPaused.betterOfficer
+                    })
+                    setDisableBtn(data.socialCard.activityIsPaused.textChat)
+
+                    setErrorFlag(false)
+                })
+        }
+    }
 
     useEffect(() => {
         fetch("http://localhost:3000/test.json")
@@ -38,25 +59,10 @@ function Social() {
                 })
                 setDisableBtn(data.socialCard.activityIsPaused.textChat)
             })
-    }, [])
-
-    // ====== FOR VERCEL LOCAL DEMO ======
-    useEffect(() => {
-        fetch("https://god-assistant.vercel.app/test.json")
-            .then(data => data.json())
-            .then((data) => {
-                setDay(data.socialCard.currentDay)
-                setTime(data.socialCard.currentTime)
-                setPeriod(data.socialCard.currentPeriod)
-                setActivityIsPaused({
-                    textChat: data.socialCard.activityIsPaused.textChat,
-                    voiceChat: data.socialCard.activityIsPaused.voiceChat,
-                    betterOfficer: data.socialCard.activityIsPaused.betterOfficer
-                })
-                setDisableBtn(data.socialCard.activityIsPaused.textChat)
+            .catch(() => {
+                setErrorFlag(true)
             })
     }, [])
-    // ====== FOR VERCEL LOCAL DEMO ======
 
     function handleTimeChange(e) {
         setTime(e.target.value)

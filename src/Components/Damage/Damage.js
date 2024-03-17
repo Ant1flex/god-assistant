@@ -49,12 +49,53 @@ function Damage() {
   const [savePresetFlag, setSavePresetFlag] = useState(false)
   const [deletePresetFlag, setDeletePresetFlag] = useState(false)
   const [disableBtn, setDisableBtn] = useState(false)
+  const [errorFlag, setErrorFlag] = useState(false)
 
   const [confirmModal, setConfirmModal] = useState({
     show: false,
     description: 'You sure?',
     action: '',
   })
+
+  {
+    if (errorFlag) {
+      fetch("https://god-assistant.vercel.app/test.json")
+      .then(data => data.json())
+      .then((data) => {
+        setModeArray(data.damageCard.modeArray)
+        data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
+
+        setDay(data.damageCard.currentDay)
+        setTime(data.damageCard.currentTime)
+
+        setAssaultArray(data.damageCard.assaultArray)
+        setSupportArray(data.damageCard.supportArray)
+        setMedicArray(data.damageCard.medicArray)
+        setSniperArray(data.damageCard.sniperArray)
+        setState({ ...state, operators: data.damageCard.assaultArray })
+
+        setFormula(data.damageCard.currentFormulas.assault)
+        setCurrentFormulas({
+          assault: data.damageCard.currentFormulas.assault,
+          support: data.damageCard.currentFormulas.support,
+          medic: data.damageCard.currentFormulas.medic,
+          sniper: data.damageCard.currentFormulas.sniper,
+        })
+        setFormulaBtnArray(data.damageCard.formulaBtnArray)
+        setFormulasList(data.damageCard.formulasArray)
+
+        setActivityIsPaused({
+          assault: data.damageCard.activityIsPaused.assault,
+          support: data.damageCard.activityIsPaused.support,
+          medic: data.damageCard.activityIsPaused.medic,
+          sniper: data.damageCard.activityIsPaused.sniper,
+        })
+        setDisableBtn(data.damageCard.activityIsPaused.assault)
+
+        setErrorFlag(false)
+      })
+    }
+  }
 
   useEffect(() => {
     fetch("http://localhost:3000/test.json")
@@ -90,45 +131,10 @@ function Damage() {
         })
         setDisableBtn(data.damageCard.activityIsPaused.assault)
       })
-  }, [])
-
-  // ====== FOR VERCEL LOCAL DEMO ======
-  useEffect(() => {
-    fetch("https://god-assistant.vercel.app/test.json")
-      .then(data => data.json())
-      .then((data) => {
-        setModeArray(data.damageCard.modeArray)
-        data.damageCard.modeArray.filter((mode) => mode.isEnable).map((mode) => setMode(mode.name))
-
-        setDay(data.damageCard.currentDay)
-        setTime(data.damageCard.currentTime)
-
-        setAssaultArray(data.damageCard.assaultArray)
-        setSupportArray(data.damageCard.supportArray)
-        setMedicArray(data.damageCard.medicArray)
-        setSniperArray(data.damageCard.sniperArray)
-        setState({ ...state, operators: data.damageCard.assaultArray })
-
-        setFormula(data.damageCard.currentFormulas.assault)
-        setCurrentFormulas({
-          assault: data.damageCard.currentFormulas.assault,
-          support: data.damageCard.currentFormulas.support,
-          medic: data.damageCard.currentFormulas.medic,
-          sniper: data.damageCard.currentFormulas.sniper,
-        })
-        setFormulaBtnArray(data.damageCard.formulaBtnArray)
-        setFormulasList(data.damageCard.formulasArray)
-
-        setActivityIsPaused({
-          assault: data.damageCard.activityIsPaused.assault,
-          support: data.damageCard.activityIsPaused.support,
-          medic: data.damageCard.activityIsPaused.medic,
-          sniper: data.damageCard.activityIsPaused.sniper,
-        })
-        setDisableBtn(data.damageCard.activityIsPaused.assault)
+      .catch( () => {
+        setErrorFlag(true)
       })
   }, [])
-  // ====== FOR VERCEL LOCAL DEMO ======
 
   useEffect(() => {
     switch (role) {
